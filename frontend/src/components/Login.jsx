@@ -20,7 +20,7 @@ function Login() {
     try {
       // API call to authenticate the user
       const response = await axios.post(
-        "http://localhost/testa/testa1/backend/api/login.php",
+        "http://localhost/sanskala/backend/api/login.php",
         {
           email: data.email,
           password: data.password,
