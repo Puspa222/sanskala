@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import profileImage from "../images/profile.png";
 import Logo from "./Logo";
+import LogoutBtn from "./LogoutBtn";
 import "../css/nav.css"; // Import your custom CSS here
 
 function Navbar() {
@@ -115,9 +116,14 @@ function Navbar() {
                 )}
                 {/* Display Logout button if the user is authenticated */}
                 {authStatus && (
-                  <li className="hover:bg-orange-600 p-2 ">
-                    <LogoutBtn />
-                  </li>
+                  <ul>
+                    <li className="hover:bg-orange-600 p-2 transition duration-200 bg-orange-500">
+                      <Link to={"/profile"}>Profile</Link>
+                    </li>
+                    <li>
+                      <LogoutBtn />
+                    </li>
+                  </ul>
                 )}
               </ul>
             </div>
