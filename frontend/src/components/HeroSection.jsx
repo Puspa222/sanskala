@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "../css/HeroSection.css";
+import slider1 from "../home-image/slider1.jpg";
+import slider2 from "../home-image/slider2.jpeg";
+import slider3 from "../home-image/slider3.jpg";
+import slider4 from "../home-image/slider4.jpg";
 function HeroSection() {
   const slides = [
     {
-      image: "home-image/slider1.jpg",
+      image: slider1,
       description: "Explore the rich heritage of traditional festivals.",
     },
     {
-      image: "home-image/slider2.jpg",
+      image: slider2,
       description: "Dive into the world of cultural music and dance.",
     },
     {
-      image: "home-image/slider3.jpg",
+      image: slider3,
       description: "Experience the beauty of global cuisine and art.",
     },
     {
-      image: "home-image/slider4.jpg",
+      image: slider4,
       description:
         "Join the celebration of cultural diversity around the world.",
     },

@@ -2,7 +2,7 @@ import React from "react";
 import "../css/CulturalRecipes.css";
 const recipes = [
   {
-    src: "home-image/r1.jpeg",
+    src: "../home-image/r1.jpeg",
     name: "Paella",
     description: "A traditional Spanish rice dish with seafood.",
   },
