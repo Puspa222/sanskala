@@ -22,7 +22,7 @@ function Navbar() {
   };
 
   const navItems = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/" },  
     { name: "Explore", path: "/explore" },
     { name: "Feed", path: "/feed" },
     { name: "Share Culture", path: "/add-culture" },
@@ -42,9 +42,9 @@ function Navbar() {
   ];
 
   return (
-    <div className="flex h-screen p-1">
+    <div className="flex  h-screen p-1">
       {/* Left Sidebar */}
-      <div className="leftnav bg-gray-900 text-white w-64 py-6 flex flex-col justify-between">
+      <div position="fixed"  className=" leftnav bg-gray-900 text-white w-64 py-6 flex flex-col justify-between">
         {/* Logo and App Name */}
         <div className="flex flex-col items-center">
           <Logo />
@@ -52,7 +52,7 @@ function Navbar() {
         </div>
 
         {/* Navigation Links */}
-        <nav className="mt-6">
+        <nav className="mt-6 ">
           {navItems.map((item, index) => (
             <NavLink
               key={index}

@@ -2,24 +2,24 @@ import React from "react";
 import "../css/CulturalRecipes.css";
 const recipes = [
   {
-    src: "../home-image/r1.jpeg",
-    name: "Paella",
-    description: "A traditional Spanish rice dish with seafood.",
+    src: "./src/home-image/newarikhaja.jpeg",
+    name: "Newari Khaja Set",
+    description: "A traditional Newari meal consisting of various dishes.",
   },
   {
-    src: "home-image/r2.jpeg",
-    name: "Kimchi",
-    description: "A staple Korean fermented side dish.",
+    src: "./src/home-image/selroti.jpeg",
+    name: "Sel Roti",
+    description: "A traditional Nepali sweet bread made during  dashain festivals.",
   },
   {
-    src: "home-image/r3.jpeg",
-    name: "Tacos",
-    description: "Mexican corn tortillas filled with meat and vegetables.",
+    src: "./src/home-image/Yomari.jpeg",
+    name: "yo-mari",
+    description: "A sweet dumpling made of rice flour dough filled with chaku.",
   },
   {
-    src: "home-image/r4.jpeg",
-    name: "Tacos",
-    description: "Mexican corn tortillas filled with meat and vegetables.",
+    src: "./src/home-image/Dhido-Nepali-Food.jpg",
+    name: "Dhido",
+    description: "A traditional Nepali food made from buckwheat.",
   },
 ];
 function CulturalRecipes() {

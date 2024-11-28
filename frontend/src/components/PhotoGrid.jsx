@@ -1,12 +1,12 @@
 import React from "react";
 import "../css/PhotoGrid.css";
 const photos = [
-  { src: "home-image/art.png", title: "Holi Festival" },
-  { src: "home-image/danceho.jpg", title: "Local Crafts" },
-  { src: "home-image/music.jpg", title: "Christmas" },
-  { src: "home-image/UNITY.jpeg", title: "Traditional Wear" },
-  { src: "home-image/music.jpg", title: "Cultural Dance" },
-  { src: "home-image/UNITY.jpeg", title: "Holi Festival" },
+  { src: "./src/home-image/danceho.jpg", title: "Dance" },
+  { src: "./src/home-image/art.png", title: "Art" },
+  { src: "./src/home-image/music.jpg", title: "Musics" },
+  { src: "./src/home-image/products.jpg", title: "Products" },
+  { src: "./src/home-image/UNITY.jpeg", title: "Celebration" },
+  { src: "./src/home-image/r2.jpeg", title: "Recepies" },
 ];
 function PhotoGrid() {
   return (
