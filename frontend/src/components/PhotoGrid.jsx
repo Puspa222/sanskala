@@ -2,14 +2,13 @@ import React from "react";
 import "./PhotoGrid.css"; // Optional CSS file for styling    
 
 const photos = [
-  { src: "holi-festival-of-colors-in-nepal.webp", title: "Holi Festival" },
-  { src: "images (1).jpeg", title: "Local Crafts" },
-  { src: "Santa-Clause.width-800.jpg", title: "Christmas" },
-  { src: "dress_20180702130652.jpg", title: "Traditional Wear" },
-  { src: "images.jpeg", title: "Cultural Dance" },
-  { src: "holi-festival-of-colors-in-nepal.webp", title: "Holi Festival" },
+  { src: "home-image/art.png", title: "Holi Festival" },
+  { src: "home-image/danceho.jpg", title: "Local Crafts" },
+  { src: "home-image/music.jpg", title: "Christmas" },
+  { src: "home-image/UNITY.jpeg", title: "Traditional Wear" },
+  { src: "home-image/music.jpg", title: "Cultural Dance" },
+  { src: "home-image/UNITY.jpeg", title: "Holi Festival" },
 ];
-
 function PhotoGrid() {
   return (
     <div className="photo-grid">
