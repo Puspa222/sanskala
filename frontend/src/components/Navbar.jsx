@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import LogoutBtn from "./LogoutBtn";
-import profileImage from "../images/profile.png";
+import profileImage from "./images/hamro.jpg";
 import "../css/nav.css";
 import Logo from "./Logo";
 
