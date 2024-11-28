@@ -128,10 +128,10 @@ const CultureForm = () => {
                 </option>
                 <option value="festival">Festival</option>
                 <option value="dance">Dance</option>
-                <option value="food">Food</option>
+                <option value="foods">Food</option>
                 <option value="art and music">Art and Music</option>
                 <option value="language">Language</option>
-                <option value="other">Language</option>
+                <option value="other">Others</option>
               </select>
             </div>
 

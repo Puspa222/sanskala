@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExploreCard from "./ExploreCard";
-// import axios from "axios";
+import axios from "axios";
 
 const Explore = () => {
   const [activeFilter, setActiveFilter] = useState("ALL");
@@ -9,11 +9,12 @@ const Explore = () => {
 
   const filters = [
     "ALL",
-    "FESTIVALS",
+    "FESTIVAL",
     "DANCE",
-    "FOODS",
-    "ART & MUSIC",
+    "FOOD",
+    "ART AND MUSIC",
     "LANGUAGE",
+    
   ];
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Explore = () => {
           search: searchQuery,
         }
       );
+      console.log("Items fetched:", response.data);
       setItems(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -70,7 +72,7 @@ const Explore = () => {
         {items.length > 0 ? (
           items.map((item, index) => (
             <span key={index}>
-              <ExploreCard item={{ item }} />
+              <ExploreCard item={{ ...item }} />
             </span>
           ))
         ) : (
