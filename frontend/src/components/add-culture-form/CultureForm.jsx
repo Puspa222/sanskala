@@ -54,44 +54,36 @@ function CultureForm() {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="flex flex-wrap max-w-6xl mx-auto bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-8 rounded-lg shadow-lg gap-6"
+      className="flex flex-wrap bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-6 rounded-lg shadow-lg gap-4"
     >
-      {/* Title and Content Section */}
-      <div className="w-full lg:w-2/3 px-4">
-        <div className="mb-6">
-          <Input
-            label="Title:"
-            placeholder="Enter the title"
-            className="w-full p-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-100 rounded-md"
-            {...register("title", { required: true })}
-          />
-        </div>
-        <div className="mb-6">
-          <RTE
-            label="Content:"
-            name="content"
-            control={control}
-            defaultValue={getValues("content")}
-            className="w-full bg-gray-100 dark:bg-gray-700 dark:text-gray-100 rounded-md"
-          />
-        </div>
+      <div className="w-full md:w-2/3 px-4">
+        <Input
+          label="Title:"
+          placeholder="Title"
+          className="mb-4 bg-gray-100 dark:bg-gray-700 dark:text-gray-100"
+          {...register("title", { required: true })}
+        />
+        <RTE
+          label="Content:"
+          name="content"
+          control={control}
+          defaultValue={getValues("content")}
+          className="dark:bg-gray-700 dark:text-gray-100"
+        />
       </div>
-
-      {/* Image Upload and Submit Button Section */}
-      <div className="w-full lg:w-1/3 px-4">
-        <div className="mb-6">
-          <Input
-            label="Featured Images:"
-            type="file"
-            className="w-full bg-gray-100 dark:bg-gray-700 dark:text-gray-100 rounded-md"
-            accept="image/png, image/jpg, image/jpeg, image/gif"
-            multiple
-            {...register("images", { required: true })}
-          />
-        </div>
+      <div className="w-full md:w-1/3 px-4">
+        <Input
+          label="Featured Images:"
+          type="file"
+          className="mb-4 bg-gray-100 dark:bg-gray-700 dark:text-gray-100"
+          accept="image/png, image/jpg, image/jpeg, image/gif"
+          multiple
+          {...register("images", { required: true })}
+        />
         <Button
           type="submit"
-          className="w-full py-3 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800 transition duration-300"
+          bgColor="bg-blue-500"
+          className="w-full text-white dark:bg-blue-700 hover:dark:bg-blue-800"
         >
           Submit
         </Button>
