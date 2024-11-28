@@ -76,9 +76,6 @@ npm run dev
 1. Set up a local server with PHP (e.g., using XAMPP).
 2. Place backend code in the server's root directory.
 
-#### **Database Setup:**
-1. Import the SQL schema located in `database/schema.sql` into MySQL.
-2. Access the app at `http://localhost:<PORT>` in your browser.
 
 ---
 
