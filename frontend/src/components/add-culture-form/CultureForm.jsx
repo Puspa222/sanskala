@@ -31,12 +31,13 @@ const CultureForm = () => {
 
     const formData = new FormData();
     const sessionId = localStorage.getItem("session_id"); // Retrieve session_id from local storage
-    
+
     // Add session_id to the form data
     formData.append("session_id", sessionId);
 
     // Add other post data (title, content)
     formData.append("title", postData.title);
+    formData.append("category", postData.category);
     formData.append("content", postData.content);
 
     // Add images (if any)
@@ -78,7 +79,9 @@ const CultureForm = () => {
       <form onSubmit={submitPost} className="space-y-4">
         {/* Title Input */}
         <div className="flex flex-col">
-          <label htmlFor="title" className="text-sm font-medium">Post Title</label>
+          <label htmlFor="title" className="text-sm font-medium">
+            Post Title
+          </label>
           <input
             type="text"
             name="title"
@@ -90,10 +93,36 @@ const CultureForm = () => {
             required
           />
         </div>
+        {/* Category Dropdown */}
+        <div className="flex flex-col">
+          <label htmlFor="category" className="text-sm font-medium">
+            Category
+          </label>
+          <select
+            name="category"
+            id="category"
+            value={postData.category || ""}
+            onChange={handleChange}
+            className="border p-2 rounded"
+            required
+          >
+            <option value="" disabled>
+              Select a category
+            </option>
+            <option value="festival">Festival</option>
+            <option value="dance">Dance</option>
+            <option value="food">Food</option>
+            <option value="art and music">Art and Music</option>
+            <option value="language">Language</option>
+            <option value="other">Language</option>
+          </select>
+        </div>
 
         {/* Content Input */}
         <div className="flex flex-col">
-          <label htmlFor="content" className="text-sm font-medium">Post Content</label>
+          <label htmlFor="content" className="text-sm font-medium">
+            Post Content
+          </label>
           <textarea
             name="content"
             id="content"
@@ -108,7 +137,9 @@ const CultureForm = () => {
 
         {/* Image Upload */}
         <div className="flex flex-col">
-          <label htmlFor="image-upload" className="text-sm font-medium">Featured Images</label>
+          <label htmlFor="image-upload" className="text-sm font-medium">
+            Featured Images
+          </label>
           <input
             type="file"
             id="image-upload"
@@ -132,7 +163,9 @@ const CultureForm = () => {
       </form>
 
       {/* Display Success or Error Message */}
-      {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
+      {successMessage && (
+        <p className="text-green-500 mt-4">{successMessage}</p>
+      )}
       {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
     </div>
   );
