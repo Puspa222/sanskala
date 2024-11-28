@@ -7,7 +7,6 @@ function App() {
     <div className="flex">
       {/* Sidebar */}
       <Navbar />
-
       {/* Main Content */}
       <div className="flex-1 p-6 bg-gray-100 ">
         <Outlet />

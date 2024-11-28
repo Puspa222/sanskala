@@ -9,6 +9,7 @@ import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import GovernmentPolicy from "./components/Goverment.jsx";
 
 import Explore from "./components/Explore.jsx";
 import Feed from "./components/Feeds.jsx";
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/add-culture",
         element: <CultureForm />,
+      },
+      {
+        path: "/Goverment",
+        element: <GovernmentPolicy />,
       },
     ],
   },

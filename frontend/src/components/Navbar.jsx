@@ -5,7 +5,6 @@ import profileImage from "../images/profile.png";
 import Logo from "./Logo";
 import LogoutBtn from "./LogoutBtn";
 import "../css/nav.css"; // Import your custom CSS here
-
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const authStatus = useSelector((state) => state.auth.status);
@@ -26,7 +25,7 @@ function Navbar() {
     { name: "Explore", path: "/explore" },
     { name: "Feed", path: "/feed" },
     { name: "Share Culture", path: "/add-culture" },
-    { name: "Government", path: "/government" },
+    { name: "Goverment", path: "/Goverment" },
   ];
   const profileItem = [
     {
@@ -75,7 +74,7 @@ function Navbar() {
       </div>
 
       {/* Profile Icon in Top-Right */}
-      <div className="flex-1 relative">
+      <div  className=" flex-1 fixed">
         <div className="fixed top-1 right-1 bg-white-500 p-1 rounded-xl">
           <div
             className="profile-icon cursor-pointer"
