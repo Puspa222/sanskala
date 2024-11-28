@@ -1,13 +1,26 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { nanoid } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import LogoutBtn from "./LogoutBtn";
-import profileImage from "./images/profile.png";
+import profileImage from "../images/profile.png";
+import "../css/nav.css";
 import Logo from "./Logo";
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  
+  // Get the auth status from the Redux store
   const authStatus = useSelector((state) => state.auth.status);
+
+  useEffect(() => {
+    // Check the session_id in localStorage for persistence after refresh
+    const sessionId = localStorage.getItem("session_id");
+    if (sessionId) {
+      // Optionally, dispatch a login action to update the auth state in Redux if needed
+      // dispatch(login({ session_id: sessionId }));  // Uncomment if necessary
+    }
+  }, []);
 
   const toggleProfileMenu = () => {
     setProfileMenuOpen(!profileMenuOpen);
@@ -22,71 +35,63 @@ function Navbar() {
   ];
 
   const profileItem = [
-    { name: "Profile", path: "/profile", active: authStatus },
-    { name: "Login", path: "/login", active: !authStatus },
-    { name: "Signup", path: "/signup", active: !authStatus },
+    {
+      name: "Profile",
+      path: "/profile",
+      active: authStatus,  // Only show if logged in
+    },
+    {
+      name: "Login",
+      path: "/login",
+      active: !authStatus,  // Only show if logged out
+    },
+    {
+      name: "Signup",
+      path: "/signup",
+      active: !authStatus,  // Only show if logged out
+    },
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-white dark:bg-gray-800">
-      <div className="flex flex-col items-center gap-2 p-4">
-        <Logo />
-        <h2 className="text-center text-xl font-semibold text-gray-800 dark:text-gray-100">
-          संस्कला
-        </h2>
+    <div className="navbar-contents">
+      <div className="leftnav">
+        <div className="flex-col items-center gap-1">
+          <Logo />
+          <h2 className="text-center">संस्कला</h2>
+        </div>
+        <nav className="nav-links">
+          {navItems.map((item, index) => (
+            <NavLink to={item.path} key={index} className="nav-item">
+              <i className="icon-home"></i>
+              <span>{item.name}</span>
+            </NavLink>
+          ))}
+        </nav>
+        <div className="footer-section">
+          <p>© 2024 संस्कला</p>
+        </div>
       </div>
 
-      <nav className="flex-1 flex flex-col gap-4 p-4">
-        {navItems.map((item, index) => (
-          <NavLink
-            to={item.path}
-            key={index}
-            className="flex items-center gap-3 p-3 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
-            <i className="icon-home"></i>
-            <span>{item.name}</span>
-          </NavLink>
-        ))}
-      </nav>
-
-      <footer className="p-4 text-center text-sm text-gray-600 dark:text-gray-400">
-        <p>© 2024 संस्कला</p>
-      </footer>
-
-      {/* Profile Icon and Menu */}
-      <div className="absolute top-4 right-4">
-        <div
-          className="w-10 h-10 rounded-full overflow-hidden cursor-pointer"
-          onClick={toggleProfileMenu}
-        >
-          <img
-            src={profileImage}
-            alt="Profile"
-            className="w-full h-full object-cover"
-          />
+      {/* Right Sidebar */}
+      <div className="rightnav">
+        <div className="profile-icon" onClick={toggleProfileMenu}>
+          <img src={profileImage} alt="Profile" />
         </div>
 
+        {/* Profile Menu */}
         {profileMenuOpen && (
-          <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg">
-            <ul className="py-2">
+          <div className="profile-menu">
+            <ul>
               {profileItem.map(
                 (item, index) =>
                   item.active && (
-                    <li
-                      key={index}
-                      className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md"
-                    >
-                      <NavLink
-                        to={item.path}
-                        className="block text-gray-700 dark:text-gray-100"
-                      >
-                        {item.name}
-                      </NavLink>
+                    <li key={index}>
+                      <Link to={item.path}>{item.name}</Link>
                     </li>
                   )
               )}
               {authStatus && (
-                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-md">
+                <li key={nanoid()}>
                   <LogoutBtn />
                 </li>
               )}

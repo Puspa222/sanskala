@@ -1,88 +1,64 @@
 <?php
-// Include DB connection
-include '../config/db.php';
 
-// Allow CORS
+
+// Set headers for CORS and Content-Type
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Check if required fields are present
-if (!isset($_POST['fullname'], $_POST['email'], $_POST['username'], $_POST['password']) || !isset($_FILES['profilePicture'])) {
-    echo json_encode(['message' => 'All fields are required.']);
-    exit;
-}
 
-// Retrieve user data from the form
-$fullname = $_POST['fullname'];
-$email = $_POST['email'];
-$username = $_POST['username'];
-$password = $_POST['password']; // Plain password (to be hashed)
+include "../config/db.php";
+// Handle POST request for creating a user
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-if (empty($fullname) || empty($email) || empty($username) || empty($password)) {
-    echo json_encode(['message' => 'All fields are required.']);
-    exit;
-}
+    $username = $_POST['user'] ?? null;
+    $email = $_POST['email'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $name = $_POST['name'] ?? null;
+    $profile_picture = $_FILES['profile_pic']['name'] ?? null;
+    $location = null;
 
-// Hash the password
-$hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-// Handle profile picture upload
-$profilePicture = $_FILES['profilePicture'];
-$profilePictureName = $profilePicture['name'];
-$profilePictureTmpName = $profilePicture['tmp_name'];
-$profilePictureSize = $profilePicture['size'];
-$profilePictureError = $profilePicture['error'];
-
-// Check for file upload errors
-if ($profilePictureError === 0) {
-    // Check if file is an image
-    $fileExtension = pathinfo($profilePictureName, PATHINFO_EXTENSION);
-    $validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-
-    if (!in_array(strtolower($fileExtension), $validExtensions)) {
-        echo json_encode(['message' => 'Invalid file format. Only JPG, JPEG, PNG, and GIF are allowed.']);
-        exit;
+    // Handle profile picture upload
+    if ($profile_picture) {
+        $target_dir = "../profile_image/";
+        $target_file = $target_dir . basename($profile_picture);
+        if (!move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file)) {
+            echo json_encode(['status' => 'error', 'message' => 'Failed to upload profile picture']);
+            exit;
+        }
+        $location = substr($target_file, 3);
     }
 
-    // Limit file size (e.g., 5MB max)
-    $maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
-    if ($profilePictureSize > $maxFileSize) {
-        echo json_encode(['message' => 'File size exceeds the 5MB limit.']);
-        exit;
-    }
-
-    // Generate a new filename and save the file
-    $fileNameNew = uniqid('', true) . "." . $fileExtension;
-    $fileDestination = '../uploads/profile_pictures/' . $fileNameNew; // Store in uploads/profile_pictures directory
-
-    // Move the uploaded file to the server
-    if (move_uploaded_file($profilePictureTmpName, $fileDestination)) {
-        // Store the file path in the database
-        $profilePictureUrl = 'uploads/profile_pictures/' . $fileNameNew; // Store relative path in DB
+    // Validate required fields
+    if ($username && $email && $password && $name) {
+        $session_id = createUser($username, $email, $password, $name, $location);
+        if ($session_id) {
+            echo json_encode(['status' => 'success', 'message' => 'User created successfully', 'session_id' => $session_id]);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Error creating user']);
+        }
     } else {
-        echo json_encode(['message' => 'Failed to upload profile picture.']);
-        exit;
+        echo json_encode(['status' => 'error', 'message' => 'Missing required fields']);
     }
-} else {
-    echo json_encode(['message' => 'Error with file upload.']);
-    exit;
 }
 
-// Generate a custom session ID using a random string (using a secure method)
-$sessionId = bin2hex(random_bytes(16)); // 16 bytes for a 32-character hex string
+// Function to create a new user and return session_id
+function createUser($username, $email, $hashed_password, $name, $profile_picture) {
+    global $conn;
 
-// Insert the new user into the database with the generated session ID
-$stmt = $conn->prepare("INSERT INTO users (fullname, email, username, password, profile_pic, session_id) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $fullname, $email, $username, $hashedPassword, $profilePictureUrl, $sessionId);
+    // Generate secure session ID
+    $session = hash('sha256', uniqid(rand(), true));
 
-if ($stmt->execute()) {
-    // Return success response with session_id
-    echo json_encode(['message' => 'Signup successful!', 'session_id' => $sessionId]);
-} else {
-    echo json_encode(['message' => 'Signup failed. Please try again.']);
+    try {
+        $stmt = $conn->prepare("INSERT INTO Users (username, email, password, name, profile_picture, session_id) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $username, $email, $hashed_password, $name, $profile_picture, $session);
+        $stmt->execute();
+        $stmt->close();
+
+        return $session; // Return the session ID for the new user
+    } catch (Exception $e) {
+        error_log("Error creating user: " . $e->getMessage());
+        return null;
+    }
 }
-
-$stmt->close();
-$conn->close();
 ?>

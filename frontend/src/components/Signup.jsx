@@ -30,7 +30,7 @@ function Signup() {
     }
     
 
-      const response = await axios.post("http://localhost/testa/testa1/backend/api/signup.php", formData, {
+      const response = await axios.post("http://localhost/sanskala/backend/api/signup.php", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
