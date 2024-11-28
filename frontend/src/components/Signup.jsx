@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Signup.css"; // Ensure this file includes the required styles
+import "../css/Signup.css"; // Ensure this file includes the required styles
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -36,23 +36,27 @@ const Signup = () => {
   return (
     <div className="signup-container">
       <div className="logo-section">
-        <img src="/a4c3b2bd-ce4d-4a6e-a68f-a3331f64e5ac.jpeg" alt="Cultural Heritage Logo" className="logo" />
+        <img
+          src="/a4c3b2bd-ce4d-4a6e-a68f-a3331f64e5ac.jpeg"
+          alt="Cultural Heritage Logo"
+          className="logo"
+        />
       </div>
       <h1>Join Our Cultural Heritage Community!</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Choose a username"
-            required
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Choose a username"
+              required
+            />
+          </div>
           <label htmlFor="email">Email Address</label>
           <input
             type="email"
