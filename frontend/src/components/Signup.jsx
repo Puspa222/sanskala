@@ -1,107 +1,137 @@
 import React, { useState } from "react";
-import "../css/Signup.css"; // Ensure this file includes the required styles
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../store/AuthSlice";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import Input from "./Input";
+import Button from "./Button";
+import Logo from "./Logo";
+import axios from "axios";
 
-const Signup = () => {
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-  });
+function Signup() {
+  const navigate = useNavigate();
+  const [error, setError] = useState();
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
 
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Basic validation
-    if (formData.password !== formData.confirmPassword) {
-      setErrorMessage("Passwords do not match!");
-      return;
+  const create = async (data) => {
+    setError("");
+    try {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("user", data.user);
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      if (data.profile_pic[0]) {
+        formData.append("profile_pic", data.profile_pic[0]);
+      }
+      for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
     }
+    
 
-    setErrorMessage("");
+      const response = await axios.post("http://localhost/testa/testa1/backend/api/signup.php", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-    // Simulate form submission (replace with your API call)
-    console.log("Form Data Submitted:", formData);
-    alert("Signup successful!");
+      const userData = response.data;
+      if (userData) {
+          
+       
+        localStorage.setItem("session_id", userData.session_id);
+        console.log(userData);
+        dispatch(login(userData));
+        navigate("/?Registered");
+       
+      }
+    } catch (error) {
+      console.log(error.message);
+      setError(error.message);
+    }
   };
 
   return (
-    <div className="signup-container">
-      <div className="logo-section">
-        <img
-          src="/a4c3b2bd-ce4d-4a6e-a68f-a3331f64e5ac.jpeg"
-          alt="Cultural Heritage Logo"
-          className="logo"
-        />
-      </div>
-      <h1>Join Our Cultural Heritage Community!</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder="Choose a username"
-              required
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
+      <div className="mx-auto w-full max-w-lg bg-gray-200 dark:bg-gray-700 rounded-xl p-10 border border-gray-200 dark:border-gray-600">
+        <div className="mb-2 flex justify-center">
+          <span className=" w-full max-w-[100px] flex items-center justify-center rounded-xl">
+            <Logo width="100%" />
+          </span>
+        </div>
+        <h2 className="text-center text-2xl font-bold leading-tight text-gray-900 dark:text-gray-100">
+          Sign up to create account
+        </h2>
+        <p className="mt-2 text-center text-base text-gray-600 dark:text-gray-300">
+          Already have an account?&nbsp;
+          <Link
+            to="/login"
+            className="font-medium text-primary transition-all duration-200 hover:underline dark:text-blue-400"
+          >
+            Sign In
+          </Link>
+        </p>
+        {error && (
+          <p className="text-red-600 dark:text-red-400 mt-8 text-center">
+            {error}
+          </p>
+        )}
+
+        <form onSubmit={handleSubmit(create)} className="mt-8" encType="multipart/form-data">
+          <div className="space-y-5">
+            <Input
+              label="Full Name: "
+              placeholder="Enter your full name"
+              {...register("name", {
+                required: true,
+              })}
             />
+            <Input
+              label="Username: "
+              placeholder="Enter your username"
+              {...register("user", {
+                required: true,
+              })}
+            />
+            <Input
+              label="Email: "
+              placeholder="Enter your email"
+              type="email"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPatern: (value) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email address must be a valid address",
+                },
+              })}
+            />
+            <Input
+              label="Password: "
+              type="password"
+              placeholder="Enter your password"
+              {...register("password", {
+                required: true,
+              })}
+            />
+            <Input
+              label="Profile Picture: "
+              type="file"
+              accept="image/*"
+              {...register("profile_pic")}
+            />
+            <Button
+              type="submit"
+              className="w-full bg-primary text-white dark:bg-blue-500 dark:hover:bg-blue-400"
+            >
+              Create Account
+            </Button>
           </div>
-          <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email address"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Create a password"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm your password"
-            required
-          />
-        </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="submit" className="signup-button">
-          Sign Up
-        </button>
-      </form>
-      <div className="form-footer">
-        New here? <a href="/login">Create an account</a>
+        </form>
       </div>
     </div>
   );
-};
+}
 
 export default Signup;
