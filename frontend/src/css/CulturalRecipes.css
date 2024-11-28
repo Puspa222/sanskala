@@ -1,0 +1,97 @@
+.cultural-recipes {
+    background-color: #FFF8E1; /* Light gold background */
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+    }
+    
+    .cultural-recipes h2 {
+    font-size: 2rem;
+    color: #4E342E; /* Dark brown */
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    }
+    
+    /* Recipe Grid Layout */
+    .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+    }
+    
+    /* Recipe Card Styling */
+    .recipe-card {
+    background-color: #FFFDF5; /* Subtle cream */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    }
+    
+    .recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    }
+    
+    .recipe-card h3 {
+    font-size: 1.5rem;
+    color: #4E342E; /* Dark brown */
+    margin: 1rem 0;
+    transition: color 0.3s ease;
+    }
+    
+    .recipe-card p {
+    font-size: 1rem;
+    color: #6D4C41; /* Softer brown */
+    padding: 0 1rem 1.5rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+    }
+    
+    /* Hover Effects */
+    .recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .recipe-card:hover h3 {
+    color: #795548; /* Rich brown */
+    }
+    
+    .recipe-card:hover p {
+    color: #4E342E; /* Darker brown */
+    }
+    
+    /* Explore Button */
+    .recipe-card::after {
+    content: "Explore Recipe";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: #FFB74D; /* Warm gold */
+    color: #FFFDF5; /* Light cream */
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.8rem 0;
+    border-radius: 0 0 15px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1;
+    }
+    
+    .recipe-card:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -10px);
+    }
