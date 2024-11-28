@@ -5,6 +5,7 @@ import profileImage from "../images/profile.png";
 import Logo from "./Logo";
 import LogoutBtn from "./LogoutBtn";
 import "../css/nav.css"; // Import your custom CSS here
+
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const authStatus = useSelector((state) => state.auth.status);
@@ -42,36 +43,40 @@ function Navbar() {
 
   return (
     <div className="flex  h-screen p-1">
-      {/* Left Sidebar */}
-      <div position="fixed"  className=" leftnav bg-gray-900 text-white w-64 py-6 flex flex-col justify-between">
-        {/* Logo and App Name */}
-        <div className="flex flex-col items-center">
-          <Logo />
-          <h2 className="text-xl font-semibold mt-2">संस्कला</h2>
-        </div>
+   {/* Left Sidebar */}
+<div className="fixed top-0 left-0 bg-gray-900 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
+  {/* Logo and App Name */}
+  <div className="flex flex-col items-center">
+    <div className="p-2 bg-white rounded-full shadow-lg">
+      <Logo className="w-16 h-16" />
+    </div>
+    <h2 className="text-2xl font-semibold mt-4 text-gray-100">संस्कला</h2>
+  </div>
 
-        {/* Navigation Links */}
-        <nav className="mt-6 ">
-          {navItems.map((item, index) => (
-            <NavLink
-              key={index}
-              to={item.path}
-              className={({ isActive }) =>
-                `block py-3 px-4 rounded-lg transition duration-300 ${
-                  isActive ? "bg-gray-700" : "hover:bg-gray-800"
-                }`
-              }
-            >
-              {item.name}
-            </NavLink>
-          ))}
-        </nav>
+  {/* Navigation Links */}
+  <nav className="mt-8 space-y-2">
+    {navItems.map((item, index) => (
+      <NavLink
+        key={index}
+        to={item.path}
+        className={({ isActive }) =>
+          `block py-3 px-4 rounded-lg text-white font-medium transition duration-300 ${
+            isActive
+              ? "bg-gray-700 shadow-md"
+              : "hover:bg-gray-800 hover:shadow-lg"
+          }`
+        }
+      >
+        {item.name}
+      </NavLink>
+    ))}
+  </nav>
 
-        {/* Footer */}
-        <div className="text-center text-sm mt-auto">
-          <p>© 2024 संस्कला</p>
-        </div>
-      </div>
+  {/* Footer */}
+  <div className="text-center text-sm mt-auto text-gray-400 py-4">
+    <p>© 2024 <span className="font-semibold text-orange-500">संस्कला</span></p>
+  </div>
+</div>
 
       {/* Profile Icon in Top-Right */}
       <div  className=" flex-1 fixed">
