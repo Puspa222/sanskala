@@ -76,7 +76,7 @@ function Navbar() {
 
       {/* Profile Icon in Top-Right */}
       <div className="flex-1 relative">
-        <div className="fixed top-1 right-1 bg-orange-500 p-1 rounded-xl">
+        <div className="fixed top-1 right-1 bg-white-500 p-1 rounded-xl">
           <div
             className="profile-icon cursor-pointer"
             onClick={toggleProfileMenu}
@@ -97,7 +97,7 @@ function Navbar() {
                     item.active && (
                       <li
                         key={index}
-                        className="hover:bg-orange-600 p-2 transition duration-200 bg-orange-500"
+                        className="hover:bg-blue-600 p-2 transition duration-200 bg-white-500"
                       >
                         <Link
                           to={item.path}
@@ -112,7 +112,7 @@ function Navbar() {
                 {/* Display Logout button if the user is authenticated */}
                 {authStatus && (
                   <ul>
-                    <li className="hover:bg-orange-600 p-2 transition duration-200 bg-orange-500">
+                    <li className="hover:bg-blue-600 p-2 transition duration-200 bg-white-500">
                       <Link to={"/profile"}>Profile</Link>
                     </li>
                     <li>
