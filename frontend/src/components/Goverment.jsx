@@ -74,11 +74,11 @@ const GovernmentPolicy = () => {
         <h1 className="text-5xl font-extrabold text-center mb-12 text-gradient bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
           Government Policies
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="flex flex-wrap justify-center gap-10"> {/* Use flexbox to wrap the cards */}
           {policies.map((policy, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-purple-800 via-pink-700 to-orange-500 p-6 rounded-lg shadow-2xl transform hover:scale-105 hover:rotate-1 transition-transform duration-300"
+              className="bg-gradient-to-br from-purple-800 via-pink-700 to-orange-500 p-6 rounded-lg shadow-2xl transform hover:scale-105 hover:rotate-1 transition-transform duration-300 w-72" // Set a fixed width for cards
             >
               <h2 className="text-2xl font-bold mb-4 text-white drop-shadow-md">
                 {policy.title}

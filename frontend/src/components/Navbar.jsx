@@ -40,7 +40,6 @@ function Navbar() {
       active: !authStatus,
     },
   ];
-
   return (
     <div className="flex  h-screen p-1">
    {/* Left Sidebar */}
@@ -48,11 +47,10 @@ function Navbar() {
   {/* Logo and App Name */}
   <div className="flex flex-col items-center">
     <div className="p-2 bg-white rounded-full shadow-lg">
-      <Logo className="w-[45px] h-[45px] object-cover rounded-full " />
+      <Logo className="w-[450px] h-[450px] object-cover rounded-full " />
     </div>
     <h2 className="text-4xl font-semibold mt-4 text--100">संस्कला</h2>
   </div>
-
   {/* Navigation Links */}
   <nav className="mt-8 space-y-2">
     {navItems.map((item, index) => (
