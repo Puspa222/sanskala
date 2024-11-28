@@ -95,7 +95,6 @@ const PrivacyPolicy = () => {
             we will take steps to delete it.
           </p>
         </section>
-
         <section className="mb-10">
           <h2 className="text-2xl font-semibold mb-4">7. Contact Us</h2>
           <p className="text-gray-700">

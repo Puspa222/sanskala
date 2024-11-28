@@ -13,8 +13,6 @@ const Explore = () => {
     "FOODS",
     "ART & MUSIC",
     "LANGUAGE",
-    "FASHION",
-    "HISTORY",
   ];
 
   useEffect(() => {
