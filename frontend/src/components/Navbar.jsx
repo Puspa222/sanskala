@@ -30,11 +30,6 @@ function Navbar() {
   ];
   const profileItem = [
     {
-      name: "Profile",
-      path: "/profile",
-      active: authStatus,
-    },
-    {
       name: "Login",
       path: "/login",
       active: !authStatus,
