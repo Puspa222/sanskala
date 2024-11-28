@@ -1,23 +1,18 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import LogoutBtn from "./LogoutBtn";
 import profileImage from "../images/profile.png";
-import "../css/nav.css";
 import Logo from "./Logo";
+import "../css/nav.css"; // Import your custom CSS here
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
-
-  // Get the auth status from the Redux store
   const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-    // Check the session_id in localStorage for persistence after refresh
     const sessionId = localStorage.getItem("session_id");
     if (sessionId) {
-      // Optionally, dispatch a login action to update the auth state in Redux if needed
-      // dispatch(login({ session_id: sessionId }));  // Uncomment if necessary
+      // Persist session logic if needed
     }
   }, []);
 
@@ -34,55 +29,68 @@ function Navbar() {
   ];
 
   return (
-    <div className="navbar-contents">
-      <div className="leftnav">
-        <div className="flex-col items-center gap-1">
+    <div className="flex h-screen">
+      {/* Left Sidebar */}
+      <div className="leftnav bg-gray-900 text-white w-64 py-6 flex flex-col justify-between">
+        {/* Logo and App Name */}
+        <div className="flex flex-col items-center">
           <Logo />
-          <h2 className="text-center">संस्कला</h2>
+          <h2 className="text-xl font-semibold mt-2">संस्कला</h2>
         </div>
-        <nav className="nav-links">
+
+        {/* Navigation Links */}
+        <nav className="mt-6">
           {navItems.map((item, index) => (
-            <NavLink to={item.path} key={index} className="nav-item">
-              <i className="icon-home"></i>
-              <span>{item.name}</span>
+            <NavLink
+              key={index}
+              to={item.path}
+              className={({ isActive }) =>
+                `block py-3 px-4 rounded-lg transition duration-300 ${
+                  isActive ? "bg-gray-700" : "hover:bg-gray-800"
+                }`
+              }
+            >
+              {item.name}
             </NavLink>
           ))}
         </nav>
-        <div className="footer-section">
+
+        {/* Footer */}
+        <div className="text-center text-sm mt-auto">
           <p>© 2024 संस्कला</p>
         </div>
       </div>
 
-      {/* Right Sidebar */}
-      <div className="rightnav">
-        <div className="profile-icon" onClick={toggleProfileMenu}>
-          <img src={profileImage} alt="Profile" />
-        </div>
-
-        {/* Profile Menu */}
-        {profileMenuOpen && (
-          <div className="profile-menu">
-            <ul>
-              {profileItem.map(
-                (item, index) =>
-                  item.active && (
-                    <li key={index}>
-                      <Link to={item.path}>{item.name}</Link>
-                    </li>
-                  )
-              )}
-              {authStatus && (
-                <li className="px-4 py-2 hover:bg-gray-700">Profile</li>
-              )}
-              {!authStatus && (
-                <>
-                  <li className="px-4 py-2 hover:bg-gray-700">Login</li>
-                  <li className="px-4 py-2 hover:bg-gray-700">Signup</li>
-                </>
-              )}
-            </ul>
+      {/* Profile Icon in Top-Right */}
+      <div className="flex-1 relative">
+        <div className="absolute top-4 right-4">
+          <div
+            className="profile-icon cursor-pointer"
+            onClick={toggleProfileMenu}
+          >
+            <img
+              src={profileImage}
+              alt="Profile"
+              className="w-12 h-12 rounded-full border-2 border-gray-300 hover:scale-105 transition-transform"
+            />
           </div>
-        )}
+
+          {/* Profile Dropdown Menu in right side */}
+          {profileMenuOpen && (
+            <div className="absolute right-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-48">
+              <ul>
+                {authStatus ? (
+                  <li className="px-4 py-2 hover:bg-gray-200">Profile</li>
+                ) : (
+                  <>
+                    <li className="px-4 py-2 hover:bg-gray-200">Login</li>
+                    <li className="px-4 py-2 hover:bg-gray-200">Signup</li>
+                  </>
+                )}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
