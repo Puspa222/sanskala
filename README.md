@@ -68,8 +68,8 @@ cd sanskala
 #### **Frontend Setup:**
 ```bash
 cd frontend
-npm install
-npm start
+npm i
+npm run dev
 ```
 
 #### **Backend Setup:**
