@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import profileImage from "../images/profile.png";
 
@@ -18,7 +18,23 @@ function Navbar() {
     { name: "Share Culture", path: "/add-culture" },
     { name: "Government", path: "/government" },
   ];
-
+  const profileItem = [
+    {
+      name: "Profile",
+      path: "/profile",
+      active: authStatus,
+    },
+    {
+      name: "Login",
+      path: "/login",
+      active: !authStatus,
+    },
+    {
+      name: "Signup",
+      path: "/signup",
+      active: !authStatus,
+    },
+  ];
   return (
     <div className="relative flex flex-col h-screen bg-gray-900 text-white">
       {/* Profile Icon in Top-Right */}
@@ -30,16 +46,20 @@ function Navbar() {
           onClick={toggleProfileMenu}
         />
         {profileMenuOpen && (
-          <div className="absolute right-0 mt-2 bg-gray-800 text-white w-48 shadow-lg rounded-md">
-            <ul className="space-y-2">
-              {authStatus && (
-                <li className="px-4 py-2 hover:bg-gray-700">Profile</li>
+          <div className="profile-menu">
+            <ul>
+              {profileItem.map(
+                (item, index) =>
+                  item.active && (
+                    <li key={index}>
+                      <Link to={item.path}>{item.name}</Link>
+                    </li>
+                  )
               )}
-              {!authStatus && (
-                <>
-                  <li className="px-4 py-2 hover:bg-gray-700">Login</li>
-                  <li className="px-4 py-2 hover:bg-gray-700">Signup</li>
-                </>
+              {authStatus && (
+                <li key={nanoid}>
+                  <LogoutBtn />
+                </li>
               )}
             </ul>
           </div>
