@@ -1,0 +1,177 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: right;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.leftnav {
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  padding-top: 20px;
+  transition: 0.3s ease;
+}
+
+.leftnav .logo-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.leftnav .sanskala-logo {
+  width: 55px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.leftnav h2 {
+  font-size: 30px;
+  margin: 0;
+  color: white;
+}
+
+.leftnav .nav-links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  margin-top: 22px;
+  padding-top: 45px;
+  padding-right: 17px;
+}
+
+.leftnav .nav-item {
+  padding: 17px 0;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  border-radius: 13px 25px;
+  transition: background 0.2s ease;
+}
+
+.leftnav .nav-item i {
+  margin-right: 10px;
+}
+
+.leftnav .nav-item:hover {
+  background-color: #000000;
+}
+
+/* Footer in Sidebar */
+.leftnav .footer-section {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.leftnav .footer-section p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.leftnav.open + .main-content {
+  margin-left: 250px;
+}
+
+.rightnav {
+  float: right;
+  align-items: center;
+  padding: 10px 20px;
+
+  color: white;
+}
+
+/* Profile Icon */
+.profile-icon img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Profile Menu */
+.profile-menu {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.profile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-menu ul li {
+  padding: 10px;
+}
+
+.profile-menu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-menu ul li a:hover {
+  background-color: #575757;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .leftnav {
+    width: 100%;
+    height: auto;
+    position: static;
+    display: none;
+  }
+
+  .leftnav.open {
+    display: block;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .top-navbar {
+    justify-content: space-between;
+  }
+
+  .profile-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .profile-menu {
+    position: absolute;
+    right: 10px;
+    top: 45px;
+    width: 150px;
+  }
+}
