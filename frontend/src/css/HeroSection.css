@@ -1,6 +1,6 @@
 /* Hero Section Styling */
 .hero {
-    background-image: url('images.jpeg'); /* Background image */
+     /* Background image */
     background-size: cover; /* Image covers the entire section */
     background-position: center; /* Center the background */
     background-repeat: no-repeat; /* No repeat */
@@ -11,10 +11,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:6rem;
+    margin-top:3rem;
     padding: 1.5rem; /* Padding for spacing */
     position: relative;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3); /* Subtle overlay effect */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; /* Rounded corners */
+    
+    /* Subtle overlay effect */
 }
 
 /* Heading Styling */
@@ -24,7 +27,6 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Shadow for readability */
     letter-spacing: 1.5px;
 }
-
 /* Paragraph Styling */
 .hero p {
     font-size: 1rem; /* Smaller paragraph size */

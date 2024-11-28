@@ -44,13 +44,13 @@ function Navbar() {
   return (
     <div className="flex  h-screen p-1">
    {/* Left Sidebar */}
-<div className="fixed top-0 left-0 bg-gray-900 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
+<div className="fixed top-0 left-0 bg-gradient-to-b from-orange-200 via-orange-400 to-orange-700 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
   {/* Logo and App Name */}
   <div className="flex flex-col items-center">
     <div className="p-2 bg-white rounded-full shadow-lg">
-      <Logo className="w-16 h-16" />
+      <Logo className="w-[45px] h-[45px] object-cover rounded-full " />
     </div>
-    <h2 className="text-2xl font-semibold mt-4 text-gray-100">संस्कला</h2>
+    <h2 className="text-4xl font-semibold mt-4 text--100">संस्कला</h2>
   </div>
 
   {/* Navigation Links */}
@@ -74,61 +74,60 @@ function Navbar() {
 
   {/* Footer */}
   <div className="text-center text-sm mt-auto text-gray-400 py-4">
-    <p>© 2024 <span className="font-semibold text-orange-500">संस्कला</span></p>
+    <p>© 2024 <span className="font-semibold text-stone-950">संस्कला</span></p>
   </div>
 </div>
 
-      {/* Profile Icon in Top-Right */}
-      <div  className=" flex-1 fixed">
-        <div className="fixed top-1 right-1 bg-white-500 p-1 rounded-xl">
-          <div
-            className="profile-icon cursor-pointer"
-            onClick={toggleProfileMenu}
-          >
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="w-12 h-12 rounded-full border-2 border-gray-300 hover:scale-105 transition-transform"
-            />
-          </div>
+{/* Profile Icon in Top-Right */}
+<div className="fixed top-1 right-1 bg-transparent p-2 rounded-xl z-50">
+  <div
+    className="profile-icon cursor-pointer"
+    onClick={toggleProfileMenu}
+  >
+    <img
+      src={profileImage}
+      alt="Profile"
+      className="w-12 h-12 rounded-full border-2 border-gray-300 hover:scale-105 transition-transform"
+    />
+  </div>
 
-          {/* Profile Dropdown Menu in right side */}
-          {profileMenuOpen && (
-            <div className="profile-menu absolute right-0 mt-2 bg-white text-gray-800 shadow-lg  w-20 z-10">
-              <ul>
-                {profileItem.map(
-                  (item, index) =>
-                    item.active && (
-                      <li
-                        key={index}
-                        className="hover:bg-blue-600 p-2 transition duration-200 bg-white-500"
-                      >
-                        <Link
-                          to={item.path}
-                          className="text-gray-800 hover:text-white"
-                        >
-                          {item.name}
-                        </Link>
-                        <hr />
-                      </li>
-                    )
-                )}
-                {/* Display Logout button if the user is authenticated */}
-                {authStatus && (
-                  <ul>
-                    <li className="hover:bg-blue-600 p-2 transition duration-200 bg-white-500">
-                      <Link to={"/profile"}>Profile</Link>
-                    </li>
-                    <li>
-                      <LogoutBtn />
-                    </li>
-                  </ul>
-                )}
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
+  {/* Profile Dropdown Menu */}
+  {profileMenuOpen && (
+    <div className="profile-menu absolute right-0 mt-2 bg-white text-gray-800 shadow-lg w-48 rounded-lg z-50">
+      <ul>
+        {profileItem.map(
+          (item, index) =>
+            item.active && (
+              <li
+                key={index}
+                className="hover:bg-blue-600 p-3 rounded-lg transition duration-200 bg-white cursor-pointer"
+              >
+                <Link
+                  to={item.path}
+                  className="text-gray-800 hover:text-white"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            )
+        )}
+        {/* Display Logout button if the user is authenticated */}
+        {authStatus && (
+          <>
+            <li className="hover:bg-blue-600 p-3 rounded-lg transition duration-200 bg-white cursor-pointer">
+              <Link to={"/profile"} className="text-gray-800 hover:text-white">
+                Profile
+              </Link>
+            </li>
+            <li className="hover:bg-red-600 p-3 rounded-lg transition duration-200 bg-white cursor-pointer">
+              <LogoutBtn />
+            </li>
+          </>
+        )}
+      </ul>
+    </div>
+  )}
+ </div>
     </div>
   );
 }
