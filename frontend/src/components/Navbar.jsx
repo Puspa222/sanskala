@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LogoutBtn from "./LogoutBtn";
 import profileImage from "../images/profile.png";
@@ -9,7 +8,7 @@ import Logo from "./Logo";
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
-  
+
   // Get the auth status from the Redux store
   const authStatus = useSelector((state) => state.auth.status);
 
@@ -30,26 +29,8 @@ function Navbar() {
     { name: "Home", path: "/" },
     { name: "Explore", path: "/explore" },
     { name: "Feed", path: "/feed" },
-    { name: "Share Culture", path: "/share-culture" },
+    { name: "Share Culture", path: "/add-culture" },
     { name: "Government", path: "/government" },
-  ];
-
-  const profileItem = [
-    {
-      name: "Profile",
-      path: "/profile",
-      active: authStatus,  // Only show if logged in
-    },
-    {
-      name: "Login",
-      path: "/login",
-      active: !authStatus,  // Only show if logged out
-    },
-    {
-      name: "Signup",
-      path: "/signup",
-      active: !authStatus,  // Only show if logged out
-    },
   ];
 
   return (
@@ -91,9 +72,13 @@ function Navbar() {
                   )
               )}
               {authStatus && (
-                <li key={nanoid()}>
-                  <LogoutBtn />
-                </li>
+                <li className="px-4 py-2 hover:bg-gray-700">Profile</li>
+              )}
+              {!authStatus && (
+                <>
+                  <li className="px-4 py-2 hover:bg-gray-700">Login</li>
+                  <li className="px-4 py-2 hover:bg-gray-700">Signup</li>
+                </>
               )}
             </ul>
           </div>
