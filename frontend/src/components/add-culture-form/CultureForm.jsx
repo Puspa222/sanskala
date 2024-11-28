@@ -37,6 +37,7 @@ const CultureForm = () => {
 
     // Add other post data (title, content)
     formData.append("title", postData.title);
+    formData.append("category", postData.category);
     formData.append("content", postData.content);
 
     // Add images (if any)
@@ -92,6 +93,30 @@ const CultureForm = () => {
             placeholder="Enter post title"
             required
           />
+        </div>
+        {/* Category Dropdown */}
+        <div className="flex flex-col">
+          <label htmlFor="category" className="text-sm font-medium">
+            Category
+          </label>
+          <select
+            name="category"
+            id="category"
+            value={postData.category || ""}
+            onChange={handleChange}
+            className="border p-2 rounded"
+            required
+          >
+            <option value="" disabled>
+              Select a category
+            </option>
+            <option value="festival">Festival</option>
+            <option value="dance">Dance</option>
+            <option value="food">Food</option>
+            <option value="art and music">Art and Music</option>
+            <option value="language">Language</option>
+            <option value="other">Language</option>
+          </select>
         </div>
 
         {/* Content Input */}

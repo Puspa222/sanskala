@@ -34,6 +34,7 @@ if (mysqli_num_rows($result) > 0) {
 
 // Retrieve post data from the frontend
 $title = $_POST['title'] ?? '';
+$category = $_POST['category'] ?? '';
 $content = $_POST['content'] ?? '';
 
 // Handle image uploads (if any)
@@ -63,8 +64,8 @@ if (isset($_FILES['images'])) {
 $featuredImages = !empty($images) ? json_encode($images) : null;
 
 // Debug: Print the SQL query to check the data
-$sql = "INSERT INTO posts (user_id, title, content, featured_images) 
-        VALUES ('$userId', '$title', '$content', '$featuredImages')";
+$sql = "INSERT INTO posts (user_id, title, content, featured_images, category) 
+        VALUES ('$userId', '$title', '$content', '$featuredImages', '$category')";
 echo $sql;  // Debugging SQL query
 
 if (mysqli_query($conn, $sql)) {
