@@ -57,8 +57,9 @@ const CultureForm = () => {
         }
       );
       console.log("Post response:", response.data);
+      console.log("Post response:", response.data.message);
       // Handle success or error based on response
-      if (response.data.message === "Post created successfully!") {
+      if (response.data.message === "success") {
         setSuccessMessage("Post created successfully!");
         setPostData({ title: "", content: "" });
         setImages([]);

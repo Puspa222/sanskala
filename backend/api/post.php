@@ -66,10 +66,10 @@ $featuredImages = !empty($images) ? json_encode($images) : null;
 // Debug: Print the SQL query to check the data
 $sql = "INSERT INTO posts (user_id, title, content, featured_images, category) 
         VALUES ('$userId', '$title', '$content', '$featuredImages', '$category')";
-echo $sql;  // Debugging SQL query
+
 
 if (mysqli_query($conn, $sql)) {
-    echo json_encode(['message' => 'Post created successfully!']);
+    echo json_encode(['message' => 'success']);
 } else {
     echo json_encode(['message' => 'Failed to create post.', 'error' => mysqli_error($conn)]);
 }
