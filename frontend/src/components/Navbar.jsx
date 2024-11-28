@@ -42,7 +42,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen p-1">
       {/* Left Sidebar */}
       <div className="leftnav bg-gray-900 text-white w-64 py-6 flex flex-col justify-between">
         {/* Logo and App Name */}
