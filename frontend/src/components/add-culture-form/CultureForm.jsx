@@ -159,6 +159,7 @@ const CultureForm = () => {
               </label>
               <input
                 type="file"
+                required
                 id="image-upload"
                 multiple
                 onChange={handleFileChange}
