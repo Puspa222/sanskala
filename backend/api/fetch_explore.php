@@ -24,7 +24,7 @@ if ($filter !== "ALL") {
 if (!empty($search)) {
     $searchEscaped = $conn->real_escape_string($search);
   //  $sql .= " AND (title LIKE '%$searchEscaped%' OR description LIKE '%$searchEscaped%')";
-    $sql .= " AND (title LIKE '%$searchEscaped%' OR description LIKE '%$searchEscaped%')";
+    $sql .= " AND (title LIKE '%$searchEscaped%' OR content LIKE '%$searchEscaped%')";
 }
 
 // Execute the query
