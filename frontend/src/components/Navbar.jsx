@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import profileImage from "../images/profile.png";
 import Logo from "./Logo";
@@ -26,6 +26,23 @@ function Navbar() {
     { name: "Feed", path: "/feed" },
     { name: "Share Culture", path: "/add-culture" },
     { name: "Government", path: "/government" },
+  ];
+  const profileItem = [
+    {
+      name: "Profile",
+      path: "/profile",
+      active: authStatus,
+    },
+    {
+      name: "Login",
+      path: "/login",
+      active: !authStatus,
+    },
+    {
+      name: "Signup",
+      path: "/signup",
+      active: !authStatus,
+    },
   ];
 
   return (
@@ -63,7 +80,7 @@ function Navbar() {
 
       {/* Profile Icon in Top-Right */}
       <div className="flex-1 relative">
-        <div className="fixed top-4 right-4">
+        <div className="fixed top-1 right-1 bg-orange-500 p-1 rounded-xl">
           <div
             className="profile-icon cursor-pointer"
             onClick={toggleProfileMenu}
@@ -77,15 +94,30 @@ function Navbar() {
 
           {/* Profile Dropdown Menu in right side */}
           {profileMenuOpen && (
-            <div className="absolute right-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg w-48">
+            <div className="profile-menu absolute right-0 mt-2 bg-white text-gray-800 shadow-lg  w-20 z-10">
               <ul>
-                {authStatus ? (
-                  <li className="px-4 py-2 hover:bg-gray-200">Profile</li>
-                ) : (
-                  <>
-                    <li className="px-4 py-2 hover:bg-gray-200">Login</li>
-                    <li className="px-4 py-2 hover:bg-gray-200">Signup</li>
-                  </>
+                {profileItem.map(
+                  (item, index) =>
+                    item.active && (
+                      <li
+                        key={index}
+                        className="hover:bg-orange-600 p-2 transition duration-200 bg-orange-500"
+                      >
+                        <Link
+                          to={item.path}
+                          className="text-gray-800 hover:text-white"
+                        >
+                          {item.name}
+                        </Link>
+                        <hr />
+                      </li>
+                    )
+                )}
+                {/* Display Logout button if the user is authenticated */}
+                {authStatus && (
+                  <li className="hover:bg-orange-600 p-2 ">
+                    <LogoutBtn />
+                  </li>
                 )}
               </ul>
             </div>
