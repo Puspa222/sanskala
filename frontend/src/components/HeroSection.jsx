@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./css/HeroSection.css";
+import "../css/HeroSection.css";
 function HeroSection() {
   const slides = [
     {
@@ -16,7 +16,8 @@ function HeroSection() {
     },
     {
       image: "home-image/slider4.jpg",
-      description: "Join the celebration of cultural diversity around the world.",
+      description:
+        "Join the celebration of cultural diversity around the world.",
     },
   ];
 

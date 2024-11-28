@@ -1,6 +1,5 @@
 import React from "react";
-import "./PhotoGrid.css"; // Optional CSS file for styling    
-
+import "../css/PhotoGrid.css";
 const photos = [
   { src: "home-image/art.png", title: "Holi Festival" },
   { src: "home-image/danceho.jpg", title: "Local Crafts" },
