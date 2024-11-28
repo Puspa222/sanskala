@@ -1,14 +1,4 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #FFF8E1; /* Light background */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+
   .signup-container {
     background-color: #FFFDF5; /* Light input background */
     border-radius: 8px; /* Smaller radius */
