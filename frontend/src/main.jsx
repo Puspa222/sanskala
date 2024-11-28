@@ -9,7 +9,7 @@ import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
-import CultureForm from "./components/post-form/CultureForm.jsx";
+import CultureForm from "./components/add-culture-form/CultureForm.jsx";
 
 const router = createBrowserRouter([
   {
