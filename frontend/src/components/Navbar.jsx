@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import profileImage from "../images/profile.png";
 import Logo from "./Logo";
@@ -63,7 +63,7 @@ function Navbar() {
 
       {/* Profile Icon in Top-Right */}
       <div className="flex-1 relative">
-        <div className="absolute top-4 right-4">
+        <div className="fixed top-4 right-4">
           <div
             className="profile-icon cursor-pointer"
             onClick={toggleProfileMenu}
