@@ -9,7 +9,7 @@ import Logo from "./Logo";
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
-  
+
   // Get the auth status from the Redux store
   const authStatus = useSelector((state) => state.auth.status);
 
@@ -30,7 +30,7 @@ function Navbar() {
     { name: "Home", path: "/" },
     { name: "Explore", path: "/explore" },
     { name: "Feed", path: "/feed" },
-    { name: "Share Culture", path: "/share-culture" },
+    { name: "Share Culture", path: "/add-culture" },
     { name: "Government", path: "/government" },
   ];
 
@@ -38,17 +38,17 @@ function Navbar() {
     {
       name: "Profile",
       path: "/profile",
-      active: authStatus,  // Only show if logged in
+      active: authStatus, // Only show if logged in
     },
     {
       name: "Login",
       path: "/login",
-      active: !authStatus,  // Only show if logged out
+      active: !authStatus, // Only show if logged out
     },
     {
       name: "Signup",
       path: "/signup",
-      active: !authStatus,  // Only show if logged out
+      active: !authStatus, // Only show if logged out
     },
   ];
 

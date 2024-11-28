@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "/add-culture-form",
+        path: "/add-culture",
         element: <CultureForm />,
       },
     ],
