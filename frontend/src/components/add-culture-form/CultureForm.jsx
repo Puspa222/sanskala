@@ -46,6 +46,7 @@ const CultureForm = () => {
     }
 
     try {
+      setErrorMessage("");
       const response = await axios.post(
         "http://localhost/sanskala/backend/api/post.php",
         formData,
