@@ -4,6 +4,7 @@ import slider1 from "../home-image/slider1.jpg";
 import slider2 from "../home-image/slider2.jpeg";
 import slider3 from "../home-image/slider3.jpg";
 import slider4 from "../home-image/slider4.jpg";
+
 function HeroSection() {
   const slides = [
     {
