@@ -1,9 +1,10 @@
 import "./App.css";
+import CultureForm from "./components/add-culture-form/CultureForm";
 
 function App() {
   return (
     <>
-      <h1>This is Sanskala</h1>
+      <CultureForm />
     </>
   );
 }
