@@ -9,11 +9,12 @@ const Explore = () => {
 
   const filters = [
     "ALL",
-    "FESTIVALS",
+    "FESTIVAL",
     "DANCE",
-    "FOODS",
-    "ART & MUSIC",
+    "FOOD",
+    "ART AND MUSIC",
     "LANGUAGE",
+    
   ];
 
   useEffect(() => {
