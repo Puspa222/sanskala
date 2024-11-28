@@ -37,8 +37,8 @@ Sanskala bridges the gap between tradition and technology by providing an intera
 ---
 
 ## **Tech Stack**
-- **Frontend**: React, Bootstrap, HTML, CSS  
-- **Backend**: PHP, Python  
+- **Frontend**: React + Vite, Tailwind, HTML, CSS  
+- **Backend**: PHP 
 - **Database**: MySQL  
 - **Other Tools**: JavaScript, Git  
 
@@ -47,10 +47,8 @@ Sanskala bridges the gap between tradition and technology by providing an intera
 ## **Project Structure**
 ```plaintext
 sanskala/
-├── assets/              # Images and media files
-├── frontend/            # Frontend code (React)
-├── backend/             # Backend code (PHP and Python)
-├── database/            # SQL schema and scripts
+├── frontend/            # Frontend code (React + Vite)
+├── backend/             # Backend code (PHP and Database)
 └── README.md            # Project documentation
 ## **Setup Instructions**
 
@@ -85,9 +83,9 @@ npm start
 ---
 
 ## **Team Members**
-- **Puspa Regmi**: Python, PHP, React, C, C++, API
-- **Rajan Raj Acharya**: React, HTML, CSS, JavaScript, PHP
-- **Roshan Bhatta**: HTML, CSS, JavaScript, PHP, Python
+- **Puspa Regmi**: PHP, React, C, C++, API
+- **Rajan Raj Acharya**: React, Vite, HTML, CSS, JavaScript
+- **Roshan Bhatta**: HTML, CSS, JavaScript, 
 - **Bineeta Khanal**: HTML, CSS, JavaScript, PHP
 
 ---
