@@ -7,9 +7,9 @@ import Home from "./components/Home.jsx";
 import Policies from "./components/Policies.jsx";
 import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
-import AddPost from "./components/AddPost.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import CultureForm from "./components/add-culture-form/CultureForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "/add-post",
-        element: <AddPost />,
+        path: "/add-culture-form",
+        element: <CultureForm />,
       },
     ],
   },
