@@ -10,6 +10,8 @@ import Signup from "./components/Signup.jsx";
 import AddPost from "./components/AddPost.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import Explore from "./components/Explore.jsx";
+import Feed from "./components/Feeds.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         element: <Policies />,
       },
       {
+        path: "/explore",
+        element:<Explore/>
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -36,6 +42,7 @@ const router = createBrowserRouter([
         path: "/add-post",
         element: <AddPost />,
       },
+
     ],
   },
 ]);
