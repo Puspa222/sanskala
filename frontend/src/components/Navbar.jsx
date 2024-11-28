@@ -63,6 +63,7 @@ function Navbar() {
     <div className="navbar-contents">
       <div className="leftnav">
         <div className="flex-col items-center gap-1">
+
           <Logo />
           <h2 className="text-center">संस्कला</h2>
         </div>

@@ -7,7 +7,7 @@ body {
 
 .navbar-container {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end; /* Fixing the alignment of the navbar */
   position: relative;
 }
 
@@ -22,6 +22,7 @@ body {
   color: white;
   padding-top: 20px;
   transition: 0.3s ease;
+  overflow-y: auto; /* Ensure content doesn't overflow */
 }
 
 .leftnav .logo-section {
@@ -94,11 +95,18 @@ body {
   margin-left: 250px;
 }
 
+.logo {
+  width: 55px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* Right Sidebar */
 .rightnav {
-  float: right;
+  display: flex; /* Flex layout for alignment */
   align-items: center;
   padding: 10px 20px;
-
   color: white;
 }
 
@@ -144,19 +152,21 @@ body {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+  /* Left Sidebar - Mobile view */
   .leftnav {
     width: 100%;
     height: auto;
     position: static;
-    display: none;
+    display: none; /* Initially hidden */
   }
 
   .leftnav.open {
-    display: block;
+    display: block; /* Show when open */
   }
 
+  /* Hamburger Menu */
   .hamburger-menu {
-    display: flex;
+    display: flex; /* Ensure hamburger menu shows */
   }
 
   .top-navbar {
@@ -174,4 +184,15 @@ body {
     top: 45px;
     width: 150px;
   }
+
+  /* For the sidebar to slide in on mobile */
+  .leftnav.open {
+    width: 250px; /* Slide in with the original width */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's above other content */
+    height: 100vh;
+  }
 }
+
