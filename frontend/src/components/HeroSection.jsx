@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./css/HeroSection.css";
-
 function HeroSection() {
   const slides = [
     {
-      image: "/a4c3b2bd-ce4d-4a6e-a68f-a3331f64e5ac.jpeg",
+      image: "home-image/slider1.jpg",
       description: "Explore the rich heritage of traditional festivals.",
     },
     {
-      image: "back.jpg",
+      image: "home-image/slider2.jpg",
       description: "Dive into the world of cultural music and dance.",
     },
     {
-      image: "images(1).jpeg",
+      image: "home-image/slider3.jpg",
       description: "Experience the beauty of global cuisine and art.",
     },
     {
-      image: "images.jpeg",
+      image: "home-image/slider4.jpg",
       description: "Join the celebration of cultural diversity around the world.",
     },
   ];
@@ -51,5 +50,4 @@ function HeroSection() {
     </section>
   );
 }
-
 export default HeroSection;
