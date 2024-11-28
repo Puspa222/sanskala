@@ -49,6 +49,10 @@ const router = createBrowserRouter([
         path: "/Goverment",
         element: <GovernmentPolicy />,
       },
+      {
+        path: "/feed",
+        element: <Feed />,
+      },
     ],
   },
 ]);
