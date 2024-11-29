@@ -67,6 +67,8 @@ function Profile() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-yellow-100">
+      <div className="fixed top-0 w-full h-20 bg-stone-950 z-20 text-white font-bold text-center"></div>
+
       <div className="w-full max-w-lg bg-gray-200 dark:bg-gray-900 rounded-xl p-10">
         <div className="flex justify-center mb-4">
           <img
