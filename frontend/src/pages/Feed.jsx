@@ -25,16 +25,20 @@ function Feed() {
   }, []);
 
   return (
-    <div className="post-container">
-      {loading ? (
-        <p>Loading posts...</p>
-      ) : (
-        (console.log(posts),
-        posts.map((post) => (
-          <FeedCard key={post.id} post={post} /> // Pass post data to PostCard
-        )))
-      )}
-    </div>
+    <>
+      <div className="fixed top-0 w-full h-16 bg-gray-800 z-10"></div>
+
+      <div className="post-container">
+        {loading ? (
+          <p>Loading posts...</p>
+        ) : (
+          (console.log(posts),
+          posts.map((post) => (
+            <FeedCard key={post.id} post={post} /> // Pass post data to PostCard
+          )))
+        )}
+      </div>
+    </>
   );
 }
 
