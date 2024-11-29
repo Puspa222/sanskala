@@ -1,8 +1,8 @@
 import React from "react";
 
-function PostCard({ item }) {
+function PostCard({ post }) {
   // Ensure item and featured_images are properly defined before accessing them
-  const images = item?.featured_images ? JSON.parse(item.featured_images) : [];
+  const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-sm mx-auto">
@@ -32,21 +32,21 @@ function PostCard({ item }) {
       {/* Content Section */}
       <div className="p-4 flex flex-col space-y-2">
         <h3 className="text-lg font-semibold text-gray-800 truncate font-sans">
-          Title: {item?.title || "Untitled"}
+          Title: {post?.title || "Untitled"}
         </h3>
         <h4 className="text-gray-800 truncate font-sans">
-          Author: {item?.username || "Untitled"}
+          Author: {post?.username || "Untitled"}
         </h4>
         <h4 className="text-gray-800 truncate font-sans">
-          Category: {item?.category || "Untitled"}
+          Category: {post?.category || "Untitled"}
         </h4>
         <p className="text-sm text-gray-600 line-clamp-2 font-sans">
-          Description: {item?.content || "No description available."}
+          Description: {post?.content || "No description available."}
         </p>
 
         {/* Writer Category */}
-        {item?.writer && (
-          <p className="text-xs text-gray-500">Written by: {item.writer}</p>
+        {post?.writer && (
+          <p className="text-xs text-gray-500">Written by: {post.writer}</p>
         )}
         <button className="mt-auto bg-yellow-200 text-grey-700 text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 hover:text-stone-100 transition">
           Learn More
