@@ -12,6 +12,7 @@ import store from "./store/store.js";
 import GovernmentPolicy from "./components/Goverment.jsx";
 import Explore from "./components/Explore.jsx";
 import Feed from "./components/Feeds.jsx";
+import Post from "./components/post.jsx";
 
 import CultureForm from "./components/add-culture-form/CultureForm.jsx";
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/feed",
         element: <Feed />,
+      },
+      {
+        path:"/post",
+        element:<Post/>
       },
     ],
   },
