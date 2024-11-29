@@ -46,7 +46,11 @@ const router = createBrowserRouter([
         element: <CultureForm />,
       },
       {
+<<<<<<< HEAD
         path: "/government",
+=======
+        path: "/Government",
+>>>>>>> 7c27b0c45c5ec2815073b24f7178eea9c5250078
         element: <GovernmentPolicy />,
       },
       {
