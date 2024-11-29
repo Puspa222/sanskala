@@ -38,6 +38,9 @@ function HeroSection() {
   }, []);
 
   return (
+    <div className="hsection">
+      <div className="header"></div>
+      <div className="heroimg p-6 mt-14">
     <section
       className="hero"
       style={{
@@ -51,6 +54,8 @@ function HeroSection() {
         <button className="hero-button">Explore More</button>
       </div>
     </section>
+    </div>
+    </div>
   );
 }
 

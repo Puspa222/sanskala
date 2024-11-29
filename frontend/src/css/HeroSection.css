@@ -1,77 +1,129 @@
 /* Hero Section Styling */
+.hsection {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(248, 248, 211); /* Light gold background */
+}
+
+.header {
+    height: 70px;
+    background-color: #2C2C2C; /* Darker background for the header */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it stays on top */
+}
+.heroimg{
+    background-color: rgb(248, 248, 211); /* Light gold background */
+}
+
+/* Hero Section Styling */
 .hero {
-     /* Background image */
+    /* Background image */
     background-size: cover; /* Image covers the entire section */
     background-position: center; /* Center the background */
     background-repeat: no-repeat; /* No repeat */
-    height: 60vh; /* Smaller height (60% of viewport height) */
+    height: 70vh; /* Smaller height (60% of viewport height) */
     color: white; /* Text color for readability */
     text-align: center; /* Center-align text */
     display: flex;
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:3rem;
-    padding: 1.5rem; /* Padding for spacing */
+  
+    padding: 9rem; /* Padding for spacing */
     position: relative;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
     border-radius: 15px; /* Rounded corners */
-    
-    /* Subtle overlay effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.hero img{
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+
+}
+/* Subtle overlay effect for better text readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    border-radius: 15px;
+    z-index: 1; /* Overlay should stay behind content */
 }
 
 /* Heading Styling */
 .hero h1 {
-    font-size: 2.5rem; /* Medium-sized title */
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Shadow for readability */
+    font-size: 3rem; /* Larger title */
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* More pronounced shadow for readability */
     letter-spacing: 1.5px;
+    color: white;
 }
+
 /* Paragraph Styling */
 .hero p {
-    font-size: 1rem; /* Smaller paragraph size */
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-    max-width: 500px;
-    line-height: 1.5;
+    font-size: 1.2rem; /* Larger paragraph size */
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    max-width: 600px;
+    line-height: 1.6;
+    color: white; /* White text for better contrast */
 }
 
 /* Button Styling */
 .hero button {
-    padding: 0.5rem 1.5rem; /* Compact button size */
+    padding: 0.8rem 2rem; /* Larger, more clickable button */
     background-color: #FFB74D; /* Warm gold */
     color: #FFF;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border: none;
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 25px; /* Larger rounded corners */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
 }
 
 /* Button Hover Effect */
 .hero button:hover {
     background-color: #FF9800; /* Slightly darker gold on hover */
-    transform: translateY(-3px); /* Button moves up slightly on hover */
+    transform: translateY(-5px); /* Button moves up slightly on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Larger shadow for hover effect */
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hero {
         height: 50vh; /* Smaller height for mobile */
-        padding: 1rem;
+        padding: 2rem;
     }
 
     .hero h1 {
-        font-size: 2rem; /* Adjust title size */
+        font-size: 2.5rem; /* Adjust title size */
     }
 
     .hero p {
-        font-size: 0.9rem; /* Smaller paragraph text */
+        font-size: 1rem; /* Smaller paragraph text */
     }
 
     .hero button {
-        font-size: 0.9rem; /* Compact button text */
-        padding: 0.4rem 1.2rem;
+        font-size: 1rem; /* Compact button text */
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem; /* Further adjust title for very small screens */
+    }
+
+    .hero p {
+        font-size: 0.9rem; /* Even smaller paragraph text */
+    }
+
+    .hero button {
+        font-size: 0.9rem; /* Further reduce button text size */
     }
 }
