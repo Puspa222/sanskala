@@ -1,16 +1,18 @@
 import React from "react";
 import "../css/PhotoGrid.css";
+import { useNavigate } from "react-router-dom";
 
 const photos = [
-  { src: "./src/home-image/danceho.jpg", title: "Dance" },
-  { src: "./src/home-image/art.png", title: "Art" },
-  { src: "./src/home-image/music.jpg", title: "Music" },
-  { src: "./src/home-image/products.jpg", title: "Products" },
-  { src: "./src/home-image/UNITY.jpeg", title: "Celebration" },
-  { src: "./src/home-image/r2.jpeg", title: "Recipes" },
+  { src: "./src/home-image/danceho.jpg", title: "Dances", path:'/dances' },
+  { src: "./src/home-image/art.png", title: "Arts", path:'/arts' },
+  { src: "./src/home-image/music.jpg", title: "Musics", path:'/musics' },
+  { src: "./src/home-image/products.jpg", title: "Products", path:'/products' },
+  { src: "./src/home-image/UNITY.jpeg", title: "Celebrations", path:'/celebrations' },
+  { src: "./src/home-image/r2.jpeg", title: "Recipes", path:'/recipes' },
 ];
 
 function PhotoGrid() {
+  const navigate = useNavigate()
   return (
     <div className="photo-grid">
       {photos.map((photo, index) => (
@@ -18,7 +20,7 @@ function PhotoGrid() {
           <img src={photo.src} alt={photo.title} />
           <div className="photo-overlay">
             <h3>{photo.title}</h3>
-           < button className="photo-button" onClick={()=>{navigate("/explore")}}> Explore More</button> 
+           < button className="photo-button" onClick={()=>{navigate(photo.path)}}> Explore More</button> 
           </div>
         </div>
       ))}
