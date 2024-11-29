@@ -77,7 +77,7 @@ const GovernmentPolicy = () => {
           {policies.map((policy, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-yellow-600 via-yellow-500 to-yellow-400 p-6 rounded-lg shadow-2xl transform hover:scale-105 hover:rotate-1 transition-transform duration-300 w-72"
+              className="bg-gradient-to-br from-white-10 via-white-20  to-white-100 p-6 rounded-lg shadow-2xl transform hover:scale-105 hover:rotate-1 transition-transform duration-300 w-72"
  // Set a fixed width for cards
             >
               <h2 className="text-2xl font-bold mb-4 text-black drop-shadow-md">
