@@ -17,6 +17,7 @@ import GovermentPolicy from "./pages/Goverment.jsx";
 
 import CultureForm from "./components/add-culture-form/CultureForm.jsx";
 import Feed from "./pages/Feed.jsx";
+import Dance from "./components/Home-mini-page/Dance.jsx"
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
+      {
+        path:'/dances',
+        element:<Dance/>
+      }
     ],
   },
 ]);
