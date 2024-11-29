@@ -1,34 +1,9 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import Button  from "./Button";
-import Input from "./Input";
 
-import axios from "axios";
 
 function ExploreCard({ item }) {
   const images = item.featured_images ? JSON.parse(item.featured_images) : [];
-  const { register, handleSubmit } = useForm();
-
-
-  const comment = async (data) => {
-    data.pid = item.id;
-
-    const session_id = localStorage.getItem("session_id");
-    data.session_id = session_id;
-
-    try {
-      const response = await axios.post("http://localhost/sanskala/backend/api/comment.php", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      console.log(response.data);
-    } catch (error) {
-      console.error("There was a problem with the axios operation:", error);
-    }
-  };
-
+ 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-sm mx-auto">
       {/* Image Section with Scroll */}
@@ -73,19 +48,9 @@ function ExploreCard({ item }) {
         {item.writer && (
           <p className="text-xs text-gray-500">Written by: {item.writer}</p>
         )}
-        <form onSubmit={handleSubmit(comment)}>
-          <Input
-            type="text"
-            placeholder=" Write comment"
-            className="rounded-lg  text-xs"
-            {...register("comment", {
-              required: "Comment is required",
-            })}
-          />
-          <Button type="submit" className="w-full ">
-            Comment
-          </Button>
-        </form>
+           <button className="mt-auto bg-yellow-200 text-grey-700 text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 hover:text-stone-100 transition">
+          Learn More
+        </button> 
       </div>
     </div>
   );
