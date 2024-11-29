@@ -7,6 +7,7 @@ import Input from "./Input";
 import Button from "./Button";
 import Logo from "./Logo";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function Signup() {
   const authStatus = useSelector((state) => state.auth.status);
