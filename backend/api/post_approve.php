@@ -7,8 +7,8 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 // Include the database connection
 include "../config/db.php";
 
-// SQL query to fetch all posts
-$query = "SELECT id, title, username, category, content, featured_images FROM posts where status = 'Yes'";
+// SQL query to fetch all posts that are not approved
+$query = "SELECT id, title, username, category, content, featured_images FROM posts where status = 'No'";
 
 // Execute the query
 $result = mysqli_query($conn, $query);
