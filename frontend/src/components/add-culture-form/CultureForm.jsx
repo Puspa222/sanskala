@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
 const CultureForm = () => {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -67,6 +69,7 @@ const CultureForm = () => {
       if (response.data.message === "success") {
         setSuccessMessage("Post created successfully!");
         setPostData({ title: "", content: "" });
+        navigate ("/feed?Post Created Successfully"); // Redirect to the homepage
         setImages([]);
       } else {
         setErrorMessage("Failed to create post.");
