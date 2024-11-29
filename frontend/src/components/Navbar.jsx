@@ -84,7 +84,6 @@ function Navbar() {
       className="w-12 h-12 bg-yellow-500 border border-yellow-500 rounded-full transition duration-300"
     />
   </div>
-
         {/* Profile Dropdown Menu */}
         {profileMenuOpen && (
           <div className="absolute right-0 mt-2 bg-gray-50 text-gray-800 shadow-lg w-48 rounded-lg">
