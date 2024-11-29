@@ -27,6 +27,7 @@ function Post() {
       {loading ? (
         <p>Loading posts...</p>
       ) : (
+        console.log(posts),
         posts.map((post) => (
           <PostCard key={post.id} post={post} /> // Pass post data to PostCard
         ))
