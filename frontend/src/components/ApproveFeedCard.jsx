@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function FeedCard({ post }) {
   const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
@@ -10,6 +11,23 @@ function FeedCard({ post }) {
   const rejectFeed = () => {
     setApproveMsg("rejected");
   };
+
+  useEffect(() => {
+    if (approveMsg) {
+      axios
+        .post("http://localhost/sanskala/backend/post_approve_response.php", {
+          postId: post.id,
+          status: approveMsg,
+        })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
+    }
+  }, [approveMsg]);
+
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-4xl mx-auto">
