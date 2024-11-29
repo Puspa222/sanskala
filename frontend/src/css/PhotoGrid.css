@@ -1,69 +1,91 @@
+/* Photo Grid Layout */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
-    padding: 1rem;
-    background-color: bisque;
-}
-
-.photo-card {
+    padding: 1.5rem;
+    background-color: #fef9f3; /* A soft, neutral background */
+    border-radius: 10px;
+  }
+  
+  /* Individual Photo Card */
+  .photo-card {
     position: relative;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.photo-card img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* Ensures a fallback background */
+  }
+  
+  .photo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Photo Card Image */
+  .photo-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-}
-
-.photo-card:hover {
-    transform: scale(1.05);
-}
-
-.photo-overlay {
+    transition: transform 0.3s ease;
+  }
+  
+  .photo-card:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Overlay for Text and Button */
+  .photo-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    color: #FFFDF5;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ); /* Gradient overlay for better readability */
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.photo-card:hover .photo-overlay {
+    transition: opacity 0.4s ease;
+  }
+  
+  .photo-card:hover .photo-overlay {
     opacity: 1;
-}
-
-.photo-overlay h3 {
+  }
+  
+  /* Overlay Text */
+  .photo-overlay h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
     text-align: center;
-}
-
-.photo-overlay button {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Adds depth to the text */
+  }
+  
+  /* Explore Button */
+  .photo-overlay button {
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #FFB74D;
-    color: #4E342E;
+    padding: 0.7rem 1.5rem;
+    background-color: #ff7f50; /* Coral for a vibrant, eye-catching button */
+    color: #ffffff;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: background-color 0.3s;
-}
-
-.photo-overlay button:hover {
-    background-color: #795548;
-    color: #FFFDF5;
-}
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .photo-overlay button:hover {
+    background-color: #d9534f; /* A deeper red coral on hover */
+    transform: scale(1.1);
+  }
+  

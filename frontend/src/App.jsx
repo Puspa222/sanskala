@@ -8,7 +8,7 @@ function App() {
       {/* Sidebar */}
       <Navbar />
       {/* Main Content */}
-      <div className="flex-1 p-6 bg-gray-100  ml-64">
+      <div className="flex-1 p-0 bg-gray-100  ml-64">
         <Outlet />
       </div>
     </div>

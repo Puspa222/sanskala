@@ -32,9 +32,9 @@ function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000); // 3000 ms = 3 seconds
+    }, 3000);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -42,18 +42,16 @@ function HeroSection() {
       className="hero"
       style={{
         backgroundImage: `url(${slides[currentIndex].image})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        transition: "background-image 1s ease-in-out", // Smooth transition effect
       }}
     >
+      <div className="hero-overlay" />
       <div className="hero-content">
-        <h1>Welcome to Culture Unveiled</h1>
-        <p>{slides[currentIndex].description}</p>
-        <button>Explore More</button>
+        <h1 className="hero-title">Welcome to Culture Unveiled</h1>
+        <p className="hero-description">{slides[currentIndex].description}</p>
+        <button className="hero-button">Explore More</button>
       </div>
     </section>
   );
 }
+
 export default HeroSection;

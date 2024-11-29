@@ -27,6 +27,7 @@ $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
     $user = mysqli_fetch_assoc($result);
     $userId = $user['id'];
+    $userName=$user['username'];
 } else {
     echo json_encode(['message' => 'Invalid session ID or user not found.']);
     exit;
@@ -64,8 +65,8 @@ if (isset($_FILES['images'])) {
 $featuredImages = !empty($images) ? json_encode($images) : null;
 
 // Debug: Print the SQL query to check the data
-$sql = "INSERT INTO posts (user_id, title, content, featured_images, category) 
-        VALUES ('$userId', '$title', '$content', '$featuredImages', '$category')";
+$sql = "INSERT INTO posts (user_id, username, title, content, featured_images, category) 
+        VALUES ('$userId', '$$userName', '$title', '$content', '$featuredImages', '$category')";
 
 
 if (mysqli_query($conn, $sql)) {

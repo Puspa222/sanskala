@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* slick carousel */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* Example of custom font */
+.font-sans {
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  /* Adjust image size in carousel */
+  .slick-slide img {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import profileImage from "../images/profile.png";
 import Logo from "./Logo";
 import LogoutBtn from "./LogoutBtn";
-import "../css/nav.css"; // Import your custom CSS here
+import "../css/nav.css";
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
@@ -17,115 +17,102 @@ function Navbar() {
     }
   }, []);
 
-  const toggleProfileMenu = () => {
-    setProfileMenuOpen(!profileMenuOpen);
-  };
+  const toggleProfileMenu = () => setProfileMenuOpen((prev) => !prev);
 
   const navItems = [
-    { name: "Home", path: "/" },  
+    { name: "Home", path: "/" },
     { name: "Explore", path: "/explore" },
     { name: "Feed", path: "/feed" },
     { name: "Share Culture", path: "/add-culture" },
-    { name: "Goverment", path: "/Goverment" },
+    { name: "Government", path: "/government" },
   ];
-  const profileItem = [
-    {
-      name: "Login",
-      path: "/login",
-      active: !authStatus,
-    },
-    {
-      name: "Signup",
-      path: "/signup",
-      active: !authStatus,
-    },
-  ];
+
+  const profileOptions = authStatus
+    ? [
+        { name: "Profile", path: "/profile" },
+        { component: <LogoutBtn /> },
+      ]
+    : [
+        { name: "Login", path: "/login" },
+        { name: "Signup", path: "/signup" },
+      ];
+
   return (
-    <div className="flex  h-screen p-1">
-   {/* Left Sidebar */}
-<div className="fixed top-0 left-0 bg-gradient-to-b from-orange-200 via-orange-400 to-orange-700 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
-  {/* Logo and App Name */}
-  <div className="flex flex-col items-center">
-    <div className="p-2 bg-white rounded-full shadow-lg">
-      <Logo className="w-[450px] h-[450px] object-cover rounded-full " />
-    </div>
-    <h2 className="text-4xl font-semibold mt-4 text--100">संस्कला</h2>
-  </div>
-  {/* Navigation Links */}
-  <nav className="mt-8 space-y-2">
-    {navItems.map((item, index) => (
-      <NavLink
-        key={index}
-        to={item.path}
-        className={({ isActive }) =>
-          `block py-3 px-4 rounded-lg text-white font-medium transition duration-300 ${
-            isActive
-              ? "bg-gray-700 shadow-md"
-              : "hover:bg-gray-800 hover:shadow-lg"
-          }`
-        }
-      >
-        {item.name}
-      </NavLink>
-    ))}
-  </nav>
+    <div className="flex h-screen">
+      {/* Left Sidebar */}
+      <aside className="fixed top-0 left-0 bg-gradient-to-b from-yellow-600 via-yellow-600 to-yellow-400 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
+        {/* Logo and App Name */}
+        <div className="flex flex-col items-center">
+          <div className="p-2 bg-red rounded-full shadow-lg">
+            <Logo className="w-[80px] h-[80px] object-cover rounded-full" />
+          </div>
+          <h2 className="text-3xl font-bold mt-4 text-gray-200">संस्कला</h2>
+        </div>
 
-  {/* Footer */}
-  <div className="text-center text-sm mt-auto text-gray-400 py-4">
-    <p>© 2024 <span className="font-semibold text-stone-950">संस्कला</span></p>
-  </div>
-</div>
+        {/* Navigation Links */}
+        <nav className="mt-8 space-y-2">
+          {navItems.map((item, index) => (
+            <NavLink
+              key={index}
+              to={item.path}
+              className={({ isActive }) =>
+                `block py-3 px-4 rounded-lg font-medium transition duration-300 ${
+                  isActive
+                    ? "bg-stone-200 text-gray-700"
+                    : "hover:bg-stone-300 text-gray-300 hover:text-gray-700"
+                }`
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
 
-{/* Profile Icon in Top-Right */}
-<div className="fixed top-1 right-1 bg-transparent p-2 rounded-xl z-50">
-  <div
-    className="profile-icon cursor-pointer"
-    onClick={toggleProfileMenu}
-  >
+        {/* Footer */}
+        <div className="text-center text-sm text-gray-200 py-4">
+          <p>
+            © 2024 <span className="font-semibold text-white">संस्कला</span>
+          </p>
+        </div>
+      </aside>
+
+
+
+
+      <div className="top-3 right-4 fixed z-20">
+  <div className="cursor-pointer" onClick={toggleProfileMenu}>
     <img
       src={profileImage}
       alt="Profile"
-      className="w-12 h-12 rounded-full border-2 border-gray-300 hover:scale-105 transition-transform"
+      className="w-12 h-12 rounded-full transition duration-300"
     />
   </div>
 
-  {/* Profile Dropdown Menu */}
-  {profileMenuOpen && (
-    <div className="profile-menu absolute right-0 mt-2 bg-white text-gray-800 shadow-lg w-48 rounded-lg z-50">
-      <ul>
-        {profileItem.map(
-          (item, index) =>
-            item.active && (
-              <li
-                key={index}
-                className="hover:bg-blue-600 p-3 rounded-lg transition duration-200 bg-white cursor-pointer"
-              >
-                <Link
-                  to={item.path}
-                  className="text-gray-800 hover:text-white"
+        {/* Profile Dropdown Menu */}
+        {profileMenuOpen && (
+          <div className="absolute right-0 mt-2 bg-gray-50 text-gray-800 shadow-lg w-48 rounded-lg">
+            <ul>
+              {profileOptions.map((item, index) => (
+                <li
+                  key={index}
+                  className="hover:bg-blue-400 p-3 rounded-lg transition duration-200 cursor-pointer"
                 >
-                  {item.name}
-                </Link>
-              </li>
-            )
+                  {item.component ? (
+                    item.component
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="block text-gray-800 hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
-        {/* Display Logout button if the user is authenticated */}
-        {authStatus && (
-          <>
-            <li className="hover:bg-blue-600 p-3 rounded-lg transition duration-200 bg-white cursor-pointer">
-              <Link to={"/profile"} className="text-gray-800 hover:text-white">
-                Profile
-              </Link>
-            </li>
-            <li className="hover:bg-red-600 p-3 rounded-lg transition duration-200 bg-white cursor-pointer">
-              <LogoutBtn />
-            </li>
-          </>
-        )}
-      </ul>
-    </div>
-  )}
- </div>
+      </div>
     </div>
   );
 }
