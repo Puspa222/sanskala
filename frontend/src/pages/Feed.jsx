@@ -32,10 +32,15 @@ function Feed() {
         {loading ? (
           <p>Loading posts...</p>
         ) : (
-          (console.log(posts),
-          posts.map((post) => (
-            <FeedCard key={post.id} post={post} /> // Pass post data to PostCard
-          )))
+          <div className="mt-20">
+          
+          {
+            (console.log(posts),
+            posts.map((post) => (
+              <FeedCard key={post.id} post={post} /> // Pass post data to PostCard
+            )))
+          }
+          </div>
         )}
       </div>
     </>
