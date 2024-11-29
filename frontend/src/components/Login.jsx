@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login as storeLogin } from "../store/AuthSlice";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import Button from "./Button";
 import Input from "./Input";
@@ -10,7 +10,14 @@ import Logo from "./Logo";
 import axios from "axios";
 
 function Login() {
+  const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authStatus) {
+      navigate("/");
+    }
+  }, []);
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
@@ -49,7 +56,9 @@ function Login() {
       // Handle API or network errors
       if (error.response) {
         // Backend responded with an error
-        setError(error.response.data.message || "Login failed. Please try again.");
+        setError(
+          error.response.data.message || "Login failed. Please try again."
+        );
       } else if (error.request) {
         // No response received
         setError("No response from server. Please check your connection.");

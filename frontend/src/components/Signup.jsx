@@ -9,7 +9,14 @@ import Logo from "./Logo";
 import axios from "axios";
 
 function Signup() {
+  const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authStatus) {
+      navigate("/");
+    }
+  }, []);
   const [error, setError] = useState();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
