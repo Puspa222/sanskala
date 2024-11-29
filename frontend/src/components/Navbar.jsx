@@ -96,7 +96,7 @@ function Navbar() {
                 `block py-3 px-4 rounded-lg text-xl font-semibold transition duration-300 ${
                   isActive
                     ? "bg-stone-200 text-gray-700"
-                    : "hover:bg-stone-300 text-gray-300 hover:text-gray-700"
+                    : "hover:bg-stone-300 text-gray-900 hover:text-gray-700"
                 }`
               }
             >

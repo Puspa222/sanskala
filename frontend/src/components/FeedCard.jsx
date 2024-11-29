@@ -18,7 +18,9 @@ function FeedCard({ post }) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost/sanskala/backend/api/comment.php?pid=${post.id}`);
+        const response = await axios.get(
+          `http://localhost/sanskala/backend/api/comment.php?pid=${post.id}`
+        );
         if (response.data.status === "success") {
           setComments(response.data.comments);
         } else {
@@ -72,7 +74,7 @@ function FeedCard({ post }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-4xl mx-auto">
+    <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-100 hover:shadow-2xl mt-6 max-w-3xl mx-auto">
       <div className="relative w-full">
         {images.length > 0 ? (
           <div className="flex overflow-x-auto space-x-2">
@@ -98,14 +100,18 @@ function FeedCard({ post }) {
         </h3>
         <h4 className="text-gray-800">Author: {post?.username || "Unknown"}</h4>
         <h4 className="text-gray-800">Category: {post?.category || "N/A"}</h4>
-        <p className="text-sm text-gray-600">
-          Description: {post?.content || "No description available."}
+        <p className="text-base bg-stone-200 text-gray-900 p-5">
+          {post?.content || "No description available."}
         </p>
 
         {!authStatus && (
           <>
             <p>
-              Please <Link to="/login" className="text-blue-400">Login</Link> to comment.
+              Please{" "}
+              <Link to="/login" className="text-blue-400">
+                Login
+              </Link>{" "}
+              to comment.
             </p>
           </>
         )}
@@ -118,7 +124,10 @@ function FeedCard({ post }) {
               className="w-full border rounded-lg px-4 py-2"
               {...register("comment", { required: "Comment is required" })}
             />
-            <Button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg">
+            <Button
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 rounded-lg"
+            >
               Add Comment
             </Button>
           </form>
@@ -128,16 +137,34 @@ function FeedCard({ post }) {
         {errorMsg && <p className="text-red-500 text-xs">{errorMsg}</p>}
 
         <div className="mt-4">
-          <h4 className="text-lg font-semibold text-gray-800">Comments:</h4>
+          <h4 className="text-lg font-semibold text-gray-700">Comments:</h4>
           {comments.length > 0 ? (
             comments.map((comment, index) => (
-              <div key={index} className="bg-gray-100 p-2 rounded-lg mt-2">
-                <p className="text-sm text-gray-800">{comment.comment}</p>
-                <p className="text-xs text-gray-500">By: {comment.username}</p>
+              <div
+                key={index}
+                className="flex items-start bg-gray-100 p-3 rounded-lg mt-3"
+              >
+                {/* Comment Content */}
+                <div>
+                  {/* Username and Timestamp */}
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-gray-800">
+                      Username: {comment.username}
+                    </p>
+                    <span className="text-xs text-gray-500 ml-4">
+                      Commented at:{" "}
+                      {new Date(comment.created_at).toLocaleString()}
+                    </span>
+                  </div>
+                  {/* Comment Text */}
+                  <p className="text-base text-gray-900 mt-1">
+                    {comment.comment}
+                  </p>
+                </div>
               </div>
             ))
           ) : (
-            <p className="text-gray-500">No comments yet.</p>
+            <p className="text-sm text-gray-500 mt-2">No comments yet.</p>
           )}
         </div>
       </div>
