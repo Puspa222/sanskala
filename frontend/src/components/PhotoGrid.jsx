@@ -18,7 +18,6 @@ function PhotoGrid() {
           <img src={photo.src} alt={photo.title} />
           <div className="photo-overlay">
             <h3>{photo.title}</h3>
-            <button className="explore-btn">Explore</button>
           </div>
         </div>
       ))}
