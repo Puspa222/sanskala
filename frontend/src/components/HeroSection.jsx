@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "../css/HeroSection.css";
 import slider1 from "../home-image/slider1.jpg";
 import slider2 from "../home-image/muslimre.jpg";
 import slider3 from "../home-image/slider3.jpg";
 import slider4 from "../home-image/slider4.jpg";
-
 import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const slides = [
     {
       image: slider1,
@@ -41,23 +39,32 @@ function HeroSection() {
   }, []);
 
   return (
-    <div className="hsection">
-      <div className="header"></div>
-      <div className="heroimg p-6 mt-14">
-    <section
-      className="hero"
-      style={{
-        backgroundImage: `url(${slides[currentIndex].image})`,
-      }}
-    >
-      <div className="hero-overlay" />
-      <div className="hero-content">
-        <h1 className="hero-title">Welcome to Culture Unveiled</h1>
-        <p className="hero-description">{slides[currentIndex].description}</p>
-        <button className="hero-button" onClick={()=>{navigate("/explore")}}> Explore More</button>
+    <div className="bg-yellow-100">
+      <div className="fixed top-0 w-full h-16 bg-gray-800 z-10"></div>
+      <div className="mt-14 p-6">
+        <section
+          className="relative flex flex-col justify-center items-center text-center h-[70vh] bg-cover bg-center rounded-xl"
+          style={{
+            backgroundImage: `url(${slides[currentIndex].image})`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50 rounded-xl"></div>
+          <div className="relative z-10 text-white">
+            <h1 className="text-4xl font-bold mb-4 text-shadow-lg">
+              Welcome to Culture Unveiled
+            </h1>
+            <p className="text-lg max-w-lg mx-auto mb-6 leading-relaxed text-shadow-md">
+              {slides[currentIndex].description}
+            </p>
+            <button
+              className="bg-amber-400 hover:bg-amber-500 text-white py-2 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300"
+              onClick={() => navigate("/explore")}
+            >
+              Explore More
+            </button>
+          </div>
+        </section>
       </div>
-    </section>
-    </div>
     </div>
   );
 }
