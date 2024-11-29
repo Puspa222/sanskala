@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ExploreCard from "./ExploreCard";
+import ExploreCard from "../components/ExploreCard";
 import axios from "axios";
 
 const Explore = () => {
