@@ -24,14 +24,11 @@ function Navbar() {
     { name: "Explore", path: "/explore" },
     { name: "Feed", path: "/feed" },
     { name: "Share Culture", path: "/add-culture" },
-    { name: "Government", path: "/government" },
+    { name: "Government", path: "/goverment-initiatives" },
   ];
 
   const profileOptions = authStatus
-    ? [
-        { name: "Profile", path: "/profile" },
-        { component: <LogoutBtn /> },
-      ]
+    ? [{ name: "Profile", path: "/profile" }, { component: <LogoutBtn /> }]
     : [
         { name: "Login", path: "/login" },
         { name: "Signup", path: "/signup" },
@@ -75,15 +72,15 @@ function Navbar() {
           </p>
         </div>
       </aside>
-      
+
       <div className="top-3 right-4 fixed z-20">
-  <div className="cursor-pointer" onClick={toggleProfileMenu}>
-    <img
-      src={profileImage}
-      alt="Profile"
-      className="w-12 h-12 bg-yellow-500 border border-yellow-500 rounded-full transition duration-300"
-    />
-  </div>
+        <div className="cursor-pointer" onClick={toggleProfileMenu}>
+          <img
+            src={profileImage}
+            alt="Profile"
+            className="w-12 h-12 bg-yellow-500 border border-yellow-500 rounded-full transition duration-300"
+          />
+        </div>
         {/* Profile Dropdown Menu */}
         {profileMenuOpen && (
           <div className="absolute right-0 mt-2 bg-gray-50 text-gray-800 shadow-lg w-48 rounded-lg">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import LogoutBtn from "./LogoutBtn";
 import profileImage from "../images/profile.png"; // Default image
 
 function Profile() {
@@ -77,7 +78,9 @@ function Profile() {
         <h2 className="text-center text-2xl font-bold text-gray-900 dark:text-gray-100">
           {user.name}
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-300">{user.email}</p>
+        <p className="text-center text-gray-600 dark:text-gray-300">
+          {user.email}
+        </p>
         <div className="mt-6">
           <button
             className="w-full bg-primary text-white py-2 px-4 rounded-lg dark:bg-blue-500 dark:hover:bg-blue-400"
@@ -87,12 +90,7 @@ function Profile() {
           </button>
         </div>
         <div className="mt-4">
-          <button
-            className="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-400"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
+          <LogoutBtn />
         </div>
       </div>
     </div>
