@@ -9,11 +9,12 @@ const recipes = [
   {
     src: "./src/home-image/selroti.jpeg",
     name: "Sel Roti",
-    description: "A traditional Nepali sweet bread made during  dashain festivals.",
+    description:
+      "A traditional Nepali sweet bread made during  dashain festivals.",
   },
   {
     src: "./src/home-image/Yomari.jpeg",
-    name: "yo-mari",
+    name: "Yomari",
     description: "A sweet dumpling made of rice flour dough filled with chaku.",
   },
   {

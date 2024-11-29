@@ -7,15 +7,14 @@
 
 /* Example of custom font */
 .font-sans {
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  /* Adjust image size in carousel */
-  .slick-slide img {
-    max-height: 200px;
-    object-fit: cover;
-  }
-  body{
-    background-color: rgb(248, 248, 211); /* Light gold background */
+  font-family: "Helvetica Neue", sans-serif;
+}
 
-  }
+/* Adjust image size in carousel */
+.slick-slide img {
+  max-height: 200px;
+  object-fit: cover;
+}
+body {
+  background-color: rgb(248, 248, 211); /* Light gold background */
+}
