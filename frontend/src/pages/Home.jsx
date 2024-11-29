@@ -5,9 +5,11 @@ import CulturalRecipes from "../components/CulturalRecipes";
 function Home() {
   return (
     <>
+
       <HeroSection />
       <PhotoGrid />
       <CulturalRecipes />
+
     </>
   );
 }

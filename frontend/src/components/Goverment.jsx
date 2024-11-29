@@ -1,5 +1,4 @@
 import React from "react";
-
 const policies = [
   {
     title: "Cultural Preservation Policies",
@@ -69,7 +68,7 @@ const policies = [
 
 const GovernmentPolicy = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-black to-gray-900 text-white p-6">
+<div className="min-h-screen bg-[rgb(248,248,211)] text-black p-6">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-extrabold text-center mb-12 text-gradient bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
           Government Policies
@@ -101,5 +100,4 @@ const GovernmentPolicy = () => {
     </div>
   );
 };
-
 export default GovernmentPolicy;
