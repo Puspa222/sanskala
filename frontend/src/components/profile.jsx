@@ -22,7 +22,7 @@ function Profile() {
     const fetchUserData = async () => {
       try {
         const response = await axios.post(
-          "http://localhost/testa/testa1/backend/api/profile.php",
+          "http://localhost/sanskala/backend/api/profile.php",
           { session_id: sessionId }, // Make sure this is correctly sent
           {
             headers: {
@@ -62,7 +62,7 @@ function Profile() {
 
   // If the profile picture exists, use the URL, else fallback to the default image
   const profilePicUrl = user.profile_pic
-    ? `http://localhost/testa/testa1/backend/${user.profile_pic}` // Full URL for profile pic
+    ? `http://localhost/sanskala/backend/${user.profile_pic}` // Full URL for profile pic
     : profileImage; // Fallback image
 
   return (
@@ -82,12 +82,7 @@ function Profile() {
           {user.email}
         </p>
         <div className="mt-6">
-          <button
-            className="w-full bg-primary text-white py-2 px-4 rounded-lg dark:bg-blue-500 dark:hover:bg-blue-400"
-            onClick={() => navigate("/edit-profile")}
-          >
-            Edit Profile
-          </button>
+      
         </div>
         <div className="mt-4">
           <LogoutBtn />
