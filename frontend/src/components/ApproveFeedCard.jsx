@@ -35,10 +35,10 @@ function FeedCard({ post }) {
 
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-4xl mx-auto">
-      <div className="relative w-full">
+    <div className="bg-white p-6   rounded-3xl shadow-lg border overflow-hidden transition-transform transform hover:scale-100 hover:shadow-2xl max-w-4xl mx-auto z-0">
+      <div className="relative w-full ">
         {images.length > 0 ? (
-          <div className="flex overflow-x-auto space-x-2">
+          <div className="flex flex-wrap items-center justify-center overflow-x-auto space-x-2">
             {images.map((image, index) => (
               <img
                 key={index}
@@ -59,21 +59,21 @@ function FeedCard({ post }) {
         <h3 className="text-lg font-semibold text-gray-800 truncate">
           Title: {post?.title || "Untitled"}
         </h3>
-        <h4 className="text-gray-800">Author: {post?.username || "Unknown"}</h4>
-        <h4 className="text-gray-800">Category: {post?.category || "N/A"}</h4>
-        <p className="text-sm text-gray-600">
-          Description: {post?.content || "No description available."}
+        <h4 className="text-gray-800 bg-yellow-100 p-3">Author: <span className="font-bold">{post?.username || "Unknown"}</span></h4>
+        <h4 className="text-gray-800 bg-yellow-100 p-3">Category: <span className="font-bold">{post?.category || "N/A"}</span></h4>
+        <p className="text-base text-gray-600 bg-yellow-200 p-3">
+          Description: <span className="">{post?.content || "No description available."}</span>
         </p>
         <div className="flex justify-between items-center">
           <button
             onClick={approveFeed}
-            className="bg-green-500 hover:bg-green-400"
+            className="bg-green-500 hover:bg-green-400 p-3 rounded-lg w-24"
           >
             Approve
           </button>
           <button
             onClick={rejectFeed}
-            className="bg-red-500 hover:bg-green-400"
+            className="bg-red-500 hover:bg-red-400 p-3 rounded-lg w-24"
           >
             Reject
           </button>
