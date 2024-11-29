@@ -47,11 +47,6 @@ const router = createBrowserRouter([
         path: "/add-culture",
         element: <CultureForm />,
       },
-
-      {
-        path: "/feed",
-        element: <Feed />,
-      },
       {
         path: "/goverment",
         element: <GovermentPolicy/>,

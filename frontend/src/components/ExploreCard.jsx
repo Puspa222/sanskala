@@ -1,11 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { login } from "../store/AuthSlice";
+import Button  from "./Button";
 import Input from "./Input";
+
+import axios from "axios";
 
 function ExploreCard({ item }) {
   const images = item.featured_images ? JSON.parse(item.featured_images) : [];
   const { register, handleSubmit } = useForm();
+
 
   const comment = async (data) => {
     data.pid = item.id;
@@ -13,7 +16,17 @@ function ExploreCard({ item }) {
     const session_id = localStorage.getItem("session_id");
     data.session_id = session_id;
 
-    console.log(data);
+    try {
+      const response = await axios.post("http://localhost/sanskala/backend/api/comment.php", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error("There was a problem with the axios operation:", error);
+    }
   };
 
   return (
