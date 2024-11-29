@@ -62,13 +62,13 @@ function Navbar() {
   return (
     <div className="flex h-screen">
       {/* Left Sidebar */}
-      <aside className="fixed top-0 left-0 bg-gradient-to-b from-yellow-600 via-yellow-600 to-yellow-400 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
+      <aside className="fixed top-0 left-0 bg-gradient-to-b from-yellow-600 to-yellow-500 text-white w-64 h-full py-6 flex flex-col justify-between shadow-lg z-50">
         {/* Logo and App Name */}
         <div className="flex flex-col items-center">
           <div className="p-2 bg-red rounded-full shadow-lg">
             <Logo className="w-[80px] h-[80px] object-cover rounded-full" />
           </div>
-          <h2 className="text-3xl font-bold mt-4 text-gray-200">संस्कला</h2>
+          <h2 className="text-3xl font-bold mt-4 text-gray-900">संस्कला</h2>
         </div>
 
         {/* Navigation Links */}
@@ -78,10 +78,10 @@ function Navbar() {
               key={index}
               to={item.path}
               className={({ isActive }) =>
-                `block py-3 px-4 rounded-lg font-medium transition duration-300 ${
+                `block py-3 px-4 rounded-lg text-xl font-semibold transition duration-300 ${
                   isActive
                     ? "bg-stone-200 text-gray-700"
-                    : "hover:bg-stone-300 text-gray-300 hover:text-gray-700"
+                    : "hover:bg-stone-300 text-gray-900 hover:text-gray-700"
                 }`
               }
             >
@@ -93,7 +93,7 @@ function Navbar() {
               key={nanoid}
               to={"/approve-feed"}
               className={({ isActive }) =>
-                `block py-3 px-4 rounded-lg font-medium transition duration-300 ${
+                `block py-3 px-4 rounded-lg text-xl font-semibold transition duration-300 ${
                   isActive
                     ? "bg-stone-200 text-gray-700"
                     : "hover:bg-stone-300 text-gray-300 hover:text-gray-700"
@@ -128,7 +128,7 @@ function Navbar() {
               {profileOptions.map((item, index) => (
                 <li
                   key={index}
-                  className="hover:bg-stone-300 text-stone-900 p-3 rounded-lg transition duration-200 cursor-pointer"
+                  className="hover:bg-stone-300 text-stone-900 p-2 rounded-lg transition duration-200 cursor-pointer"
                 >
                   {item.component ? (
                     item.component

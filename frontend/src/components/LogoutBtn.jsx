@@ -23,7 +23,7 @@ function LogoutBtn() {
   return (
     <button
       onClick={logoutHandler}
-      className="text-white bg-red-600 hover:bg-red-500 rounded px-4 py-2"
+      className="text-white bg-red-600 hover:bg-red-500 rounded px-1 py-1"
     >
       Logout
     </button>
