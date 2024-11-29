@@ -2,6 +2,7 @@ import React from "react";
 import { logout } from "../store/AuthSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { adminLogout } from "../store/AdminAuthSlice";
 
 function LogoutBtn() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function LogoutBtn() {
 
     // Dispatch the logout action to update Redux store
     dispatch(logout());
+    dispatch(adminLogout());
 
     // Redirect to home or login page
     navigate("/");
