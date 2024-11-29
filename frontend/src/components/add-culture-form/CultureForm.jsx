@@ -80,118 +80,142 @@ const CultureForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-md bg-bisque shadow-lg rounded-lg border border-gray-200">
-  {!authStatus && (
-    <h1 className="text-center text-lg font-semibold mb-4 text-brown-700">
-      Login to Share The Culture.{" "}
-      <Link to="/login" className="text-blue-600 underline hover:text-blue-800 transition duration-200">
-        Login Now
-      </Link>
-    </h1>
-  )}
+    <>
+      <div className="fixed top-0 w-full h-16 bg-gray-800 z-10"></div>
 
-  {authStatus && (
-    <span>
-      <h2 className="text-2xl font-semibold mb-4 text-center text-brown-700">Create New Post</h2>
-      <form onSubmit={submitPost} className="space-y-6">
-        {/* Title Input */}
-        <div className="flex flex-col">
-          <label htmlFor="title" className="text-sm font-medium mb-1 text-brown-600">
-            Post Title
-          </label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            value={postData.title}
-            onChange={handleChange}
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
-            placeholder="Enter post title"
-            required
-          />
-        </div>
+      <div className="container mx-auto p-6 max-w-md bg-bisque shadow-lg rounded-lg border border-gray-200">
+        {!authStatus && (
+          <h1 className="text-center text-lg font-semibold mb-4 text-brown-700 mt-20">
+            Login to Share The Culture.{" "}
+            <Link
+              to="/login"
+              className="text-blue-600 underline hover:text-blue-800 transition duration-200"
+            >
+              Login Now
+            </Link>
+          </h1>
+        )}
 
-        {/* Category Dropdown */}
-        <div className="flex flex-col">
-          <label htmlFor="category" className="text-sm font-medium mb-1 text-brown-600">
-            Category
-          </label>
-          <select
-            name="category"
-            id="category"
-            value={postData.category || ""}
-            onChange={handleChange}
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
-            required
-          >
-            <option value="" disabled>
-              Select a category
-            </option>
-            <option value="festival">Festival</option>
-            <option value="dance">Dance</option>
-            <option value="foods">Food</option>
-            <option value="art and music">Art and Music</option>
-            <option value="language">Language</option>
-            <option value="other">Others</option>
-          </select>
-        </div>
+        {authStatus && (
+          <span>
+            <h2 className="text-2xl font-semibold mb-4 text-center text-brown-700">
+              Create New Post
+            </h2>
+            <form onSubmit={submitPost} className="space-y-6">
+              {/* Title Input */}
+              <div className="flex flex-col">
+                <label
+                  htmlFor="title"
+                  className="text-sm font-medium mb-1 text-brown-600"
+                >
+                  Post Title
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  value={postData.title}
+                  onChange={handleChange}
+                  className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
+                  placeholder="Enter post title"
+                  required
+                />
+              </div>
 
-        {/* Content Input */}
-        <div className="flex flex-col">
-          <label htmlFor="content" className="text-sm font-medium mb-1 text-brown-600">
-            Post Content
-          </label>
-          <textarea
-            name="content"
-            id="content"
-            value={postData.content}
-            onChange={handleChange}
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
-            placeholder="Enter post content"
-            rows="5"
-            required
-          ></textarea>
-        </div>
+              {/* Category Dropdown */}
+              <div className="flex flex-col">
+                <label
+                  htmlFor="category"
+                  className="text-sm font-medium mb-1 text-brown-600"
+                >
+                  Category
+                </label>
+                <select
+                  name="category"
+                  id="category"
+                  value={postData.category || ""}
+                  onChange={handleChange}
+                  className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
+                  required
+                >
+                  <option value="" disabled>
+                    Select a category
+                  </option>
+                  <option value="festival">Festival</option>
+                  <option value="dance">Dance</option>
+                  <option value="foods">Food</option>
+                  <option value="art and music">Art and Music</option>
+                  <option value="language">Language</option>
+                  <option value="other">Others</option>
+                </select>
+              </div>
 
-        {/* Image Upload */}
-        <div className="flex flex-col">
-          <label htmlFor="image-upload" className="text-sm font-medium mb-1 text-brown-600">
-            Featured Images
-          </label>
-          <input
-            type="file"
-            required
-            id="image-upload"
-            multiple
-            onChange={handleFileChange}
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
-            accept="image/png, image/jpg, image/jpeg, image/gif"
-          />
-        </div>
+              {/* Content Input */}
+              <div className="flex flex-col">
+                <label
+                  htmlFor="content"
+                  className="text-sm font-medium mb-1 text-brown-600"
+                >
+                  Post Content
+                </label>
+                <textarea
+                  name="content"
+                  id="content"
+                  value={postData.content}
+                  onChange={handleChange}
+                  className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
+                  placeholder="Enter post content"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
 
-        {/* Submit Button */}
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="bg-yellow-500 text-white py-2 px-6 rounded-md shadow hover:bg-brown-600 transition duration-200"
-            disabled={loading}
-          >
-            {loading ? "Submitting..." : "Submit Post"}
-          </button>
-        </div>
-      </form>
+              {/* Image Upload */}
+              <div className="flex flex-col">
+                <label
+                  htmlFor="image-upload"
+                  className="text-sm font-medium mb-1 text-brown-600"
+                >
+                  Featured Images
+                </label>
+                <input
+                  type="file"
+                  required
+                  id="image-upload"
+                  multiple
+                  onChange={handleFileChange}
+                  className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
+                  accept="image/png, image/jpg, image/jpeg, image/gif"
+                />
+              </div>
 
-      {/* Display Success or Error Message */}
-      {successMessage && (
-        <p className="text-green-500 mt-4 text-center font-medium">{successMessage}</p>
-      )}
-      {errorMessage && (
-        <p className="text-red-500 mt-4 text-center font-medium">{errorMessage}</p>
-      )}
-    </span>
-  )}
-</div>
+              {/* Submit Button */}
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="bg-yellow-500 text-white py-2 px-6 rounded-md shadow hover:bg-brown-600 transition duration-200"
+                  disabled={loading}
+                >
+                  {loading ? "Submitting..." : "Submit Post"}
+                </button>
+              </div>
+            </form>
 
+            {/* Display Success or Error Message */}
+            {successMessage && (
+              <p className="text-green-500 mt-4 text-center font-medium">
+                {successMessage}
+              </p>
+            )}
+            {errorMessage && (
+              <p className="text-red-500 mt-4 text-center font-medium">
+                {errorMessage}
+              </p>
+            )}
+          </span>
+        )}
+      </div>
+    </>
   );
 };
 
