@@ -84,16 +84,16 @@ const CultureForm = () => {
 
   return (
     <>
-      <div className="fixed top-0 w-full h-16 bg-gray-800 z-10"></div>
-
-      <div className="container mx-auto p-6 max-w-md bg-bisque shadow-lg rounded-lg border border-gray-200">
+    <div className="h-screen w-full bg-yellow-100 pt-8 mt-14">
+    <div className="fixed top-0 w-full h-20 bg-stone-950 z-20 text-white font-bold text-center"></div>
+    <div className="container mx-auto p-6 max-w-md bg-bisque shadow-lg rounded-lg border border-gray-200 bg-gray-800 text-white">
         {!authStatus && (
           <h1 className="text-center text-lg font-semibold mb-4 text-brown-700 mt-20">
             Login to Share The Culture.{" "}
             <Link
               to="/login"
               className="text-blue-600 underline hover:text-blue-800 transition duration-200"
-            >
+              >
               Login Now
             </Link>
           </h1>
@@ -110,7 +110,7 @@ const CultureForm = () => {
                 <label
                   htmlFor="title"
                   className="text-sm font-medium mb-1 text-brown-600"
-                >
+                  >
                   Post Title
                 </label>
                 <input
@@ -122,7 +122,7 @@ const CultureForm = () => {
                   className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
                   placeholder="Enter post title"
                   required
-                />
+                  />
               </div>
 
               {/* Category Dropdown */}
@@ -130,7 +130,7 @@ const CultureForm = () => {
                 <label
                   htmlFor="category"
                   className="text-sm font-medium mb-1 text-brown-600"
-                >
+                  >
                   Category
                 </label>
                 <select
@@ -140,7 +140,7 @@ const CultureForm = () => {
                   onChange={handleChange}
                   className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
                   required
-                >
+                  >
                   <option value="" disabled>
                     Select a category
                   </option>
@@ -158,7 +158,7 @@ const CultureForm = () => {
                 <label
                   htmlFor="content"
                   className="text-sm font-medium mb-1 text-brown-600"
-                >
+                  >
                   Post Content
                 </label>
                 <textarea
@@ -170,7 +170,7 @@ const CultureForm = () => {
                   placeholder="Enter post content"
                   rows="5"
                   required
-                ></textarea>
+                  ></textarea>
               </div>
 
               {/* Image Upload */}
@@ -178,7 +178,7 @@ const CultureForm = () => {
                 <label
                   htmlFor="image-upload"
                   className="text-sm font-medium mb-1 text-brown-600"
-                >
+                  >
                   Featured Images
                 </label>
                 <input
@@ -189,7 +189,7 @@ const CultureForm = () => {
                   onChange={handleFileChange}
                   className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brown-500 transition duration-200"
                   accept="image/png, image/jpg, image/jpeg, image/gif"
-                />
+                  />
               </div>
 
               {/* Submit Button */}
@@ -198,7 +198,7 @@ const CultureForm = () => {
                   type="submit"
                   className="bg-yellow-500 text-white py-2 px-6 rounded-md shadow hover:bg-brown-600 transition duration-200"
                   disabled={loading}
-                >
+                  >
                   {loading ? "Submitting..." : "Submit Post"}
                 </button>
               </div>
@@ -218,6 +218,7 @@ const CultureForm = () => {
           </span>
         )}
       </div>
+        </div>
     </>
   );
 };
