@@ -21,13 +21,16 @@ if (empty($sessionId)) {
 }
 
 // Retrieve user ID from the session ID
-$query = "SELECT id FROM users WHERE session_id = '$sessionId'";
-$result = mysqli_query($conn, $query);
+$query = "SELECT id, username FROM users WHERE session_id = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "s", $sessionId);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
 if (mysqli_num_rows($result) > 0) {
     $user = mysqli_fetch_assoc($result);
     $userId = $user['id'];
-    $userName=$user['username'];
+    $userName = $user['username']; // Fix typo: $userNa -> $userName
 } else {
     echo json_encode(['message' => 'Invalid session ID or user not found.']);
     exit;
@@ -64,17 +67,20 @@ if (isset($_FILES['images'])) {
 // Convert image paths to JSON (if any)
 $featuredImages = !empty($images) ? json_encode($images) : null;
 
-// Debug: Print the SQL query to check the data
+// Prepare the SQL query to insert the post data
 $sql = "INSERT INTO posts (user_id, username, title, content, featured_images, category) 
-        VALUES ('$userId', '$$userName', '$title', '$content', '$featuredImages', '$category')";
+        VALUES (?, ?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "isssss", $userId, $userName, $title, $content, $featuredImages, $category);
 
-
-if (mysqli_query($conn, $sql)) {
+// Execute the query
+if (mysqli_stmt_execute($stmt)) {
     echo json_encode(['message' => 'success']);
 } else {
     echo json_encode(['message' => 'Failed to create post.', 'error' => mysqli_error($conn)]);
 }
 
 // Close the database connection
+mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>

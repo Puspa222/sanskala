@@ -173,7 +173,7 @@ const CultureForm = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-brown-500 text-white py-2 px-6 rounded-md shadow hover:bg-brown-600 transition duration-200"
+            className="bg-yellow-500 text-white py-2 px-6 rounded-md shadow hover:bg-brown-600 transition duration-200"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Submit Post"}

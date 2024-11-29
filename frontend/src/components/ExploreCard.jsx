@@ -33,6 +33,12 @@ function ExploreCard({ item }) {
         <h3 className="text-lg font-semibold text-gray-800 truncate font-sans">
           Title: {item.title || "Untitled"}
         </h3>
+        <h4 className="  text-gray-800 truncate font-sans">
+          Author: {item.username || "Untitled"}
+        </h4>
+        <h4 className=" text-gray-800 truncate font-sans">
+          Category: {item.category || "Untitled"}
+        </h4>
         <p className="text-sm text-gray-600 line-clamp-2 font-sans">
           Description: {item.content || "No description available."}
         </p>

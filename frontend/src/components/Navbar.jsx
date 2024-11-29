@@ -95,7 +95,7 @@ function Navbar() {
               {profileOptions.map((item, index) => (
                 <li
                   key={index}
-                  className="hover:bg-blue-400 p-3 rounded-lg transition duration-200 cursor-pointer"
+                  className="hover:bg-yellow-400 p-3 rounded-lg transition duration-200 cursor-pointer"
                 >
                   {item.component ? (
                     item.component
