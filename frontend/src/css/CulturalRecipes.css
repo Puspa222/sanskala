@@ -71,7 +71,7 @@
     }
     
     /* Explore Button */
-    .recipe-card::after {
+    /* .recipe-card::after {
     content: "Explore Recipe";
     display: block;
     position: absolute;
@@ -79,8 +79,8 @@
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    background-color: #FFB74D; /* Warm gold */
-    color: #FFFDF5; /* Light cream */
+    background-color: #FFB74D;
+    /* color: #FFFDF5; 
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
@@ -89,8 +89,8 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     z-index: 1;
-    }
-    
+    } 
+    */
     .recipe-card:hover::after {
     opacity: 1;
     transform: translate(-50%, -10px);
