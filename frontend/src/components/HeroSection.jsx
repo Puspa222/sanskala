@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../css/HeroSection.css";
 import slider1 from "../home-image/slider1.jpg";
-import slider2 from "../home-image/slider2.jpeg";
+import slider2 from "../home-image/muslimre.jpg";
 import slider3 from "../home-image/slider3.jpg";
 import slider4 from "../home-image/slider4.jpg";
 
+import { useNavigate } from "react-router-dom";
+
 function HeroSection() {
+  const navigate = useNavigate()
   const slides = [
     {
       image: slider1,
@@ -51,7 +54,7 @@ function HeroSection() {
       <div className="hero-content">
         <h1 className="hero-title">Welcome to Culture Unveiled</h1>
         <p className="hero-description">{slides[currentIndex].description}</p>
-        <button className="hero-button">Explore More</button>
+        <button className="hero-button" onClick={()=>{navigate("/explore")}}> Explore More</button>
       </div>
     </section>
     </div>

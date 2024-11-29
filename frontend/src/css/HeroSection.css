@@ -4,7 +4,6 @@
     padding: 0;
     background-color: rgb(248, 248, 211); /* Light gold background */
 }
-
 .header {
     height: 70px;
     background-color: #2C2C2C; /* Darker background for the header */
@@ -16,7 +15,6 @@
 .heroimg{
     background-color: rgb(248, 248, 211); /* Light gold background */
 }
-
 /* Hero Section Styling */
 .hero {
     /* Background image */
@@ -27,7 +25,6 @@
     color: white; /* Text color for readability */
     text-align: center; /* Center-align text */
     display: flex;
-    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -35,23 +32,22 @@
     padding: 9rem; /* Padding for spacing */
     position: relative;
     border-radius: 15px; /* Rounded corners */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    /* transition: all 0.3s ease; Smooth transition for hover effects */
 }
 
 .hero img{
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+     box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3); 
 
 }
 /* Subtle overlay effect for better text readability */
 .hero-overlay {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
     border-radius: 15px;
-    z-index: 1; /* Overlay should stay behind content */
+    z-index: 3; /* Overlay should stay behind content */
 }
 
 /* Heading Styling */
@@ -74,7 +70,7 @@
 }
 
 /* Button Styling */
-.hero button {
+.hero-button {
     padding: 0.8rem 2rem; /* Larger, more clickable button */
     background-color: #FFB74D; /* Warm gold */
     color: #FFF;
@@ -84,10 +80,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    z-index: 10; /* Button should stay on top */
 }
 
 /* Button Hover Effect */
-.hero button:hover {
+.hero-button:hover {
     background-color: #FF9800; /* Slightly darker gold on hover */
     transform: translateY(-5px); /* Button moves up slightly on hover */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Larger shadow for hover effect */
