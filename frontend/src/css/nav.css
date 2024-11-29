@@ -1,18 +1,15 @@
 .profile-icon img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .profile-icon img:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .leftnav nav a {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .leftnav nav a:hover {
   transform: translateX(4px);
   transition: all 0.3s ease-in-out;

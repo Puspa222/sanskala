@@ -81,7 +81,7 @@ function Navbar() {
     <img
       src={profileImage}
       alt="Profile"
-      className="w-12 h-12 rounded-full transition duration-300"
+      className="w-12 h-12 bg-yellow-500 border border-yellow-500 rounded-full transition duration-300"
     />
   </div>
 
