@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FeedCard from "../components/FeedCard";
-
+import ApproveFeedCard from "../components/ApproveFeedCard";
 function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +35,7 @@ function Feed() {
             {
               (console.log(posts),
               posts.map((post) => (
-                <FeedCard key={post.id} post={post} /> // Pass post data to PostCard
+                <ApproveFeedCard key={post.id} post={post} /> // Pass post data to PostCard
               )))
             }
           </div>
