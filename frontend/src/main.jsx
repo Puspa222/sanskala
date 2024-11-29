@@ -57,8 +57,8 @@ const router = createBrowserRouter([
         element: <GovermentPolicy />,
       },
       {
-path: "/profile",
-element: <Profile />,
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },
