@@ -12,12 +12,16 @@ import store from "./store/store.js";
 import Explore from "./pages/Explore.jsx";
 import Profile from "./components/profile.jsx";
 import GovermentPolicy from "./pages/Goverment.jsx";
+import Arts from "./components/Home-mini-page/Arts.jsx";
+import Musics from "./components/Home-mini-page/Music.jsx";
+import Celebrations from "./components/Home-mini-page/Celebrations.jsx";
 
 // import profile from "./components/profile.jsx";
 
 import CultureForm from "./components/add-culture-form/CultureForm.jsx";
 import Feed from "./pages/Feed.jsx";
-import Dance from "./components/Home-mini-page/Dance.jsx"
+import Dance from "./components/Home-mini-page/Dance.jsx";
+import Recipes from "./components/Home-mini-page/Recipes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -62,9 +66,25 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path:'/dances',
-        element:<Dance/>
-      }
+        path: "/dances",
+        element: <Dance />,
+      },
+      {
+        path: "/arts",
+        element: <Arts />,
+      },
+      {
+        path: "/musics",
+        element: <Musics />,
+      },
+      {
+        path: "/celebrations",
+        element: <Celebrations />,
+      },
+      {
+        path: "/recipes",
+        element: <Recipes />,
+      },
     ],
   },
 ]);
