@@ -1,7 +1,20 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { login } from "../store/AuthSlice";
+import Input from "./Input";
 
 function ExploreCard({ item }) {
   const images = item.featured_images ? JSON.parse(item.featured_images) : [];
+  const { register, handleSubmit } = useForm();
+
+  const comment = async (data) => {
+    data.pid = item.id;
+
+    const session_id = localStorage.getItem("session_id");
+    data.session_id = session_id;
+
+    console.log(data);
+  };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-sm mx-auto">
@@ -24,11 +37,11 @@ function ExploreCard({ item }) {
           </div>
         )}
         <div className="absolute top-2 left-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
-         {/* { Featured} */}
+          {/* { Featured} */}
         </div>
       </div>
 
-     {/* Content Section */}
+      {/* Content Section */}
       <div className="p-4 flex flex-col space-y-2">
         <h3 className="text-lg font-semibold text-gray-800 truncate font-sans">
           Title: {item.title || "Untitled"}
@@ -47,9 +60,19 @@ function ExploreCard({ item }) {
         {item.writer && (
           <p className="text-xs text-gray-500">Written by: {item.writer}</p>
         )}
-        <button className="mt-auto bg-yellow-200 text-grey-700 text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 hover:text-stone-100 transition">
-          Learn More
-        </button>
+        <form onSubmit={handleSubmit(comment)}>
+          <Input
+            type="text"
+            placeholder=" Write comment"
+            className="rounded-lg  text-xs"
+            {...register("comment", {
+              required: "Comment is required",
+            })}
+          />
+          <Button type="submit" className="w-full ">
+            Comment
+          </Button>
+        </form>
       </div>
     </div>
   );
