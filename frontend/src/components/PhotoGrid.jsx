@@ -16,7 +16,7 @@ const photos = [
 function PhotoGrid() {
   const navigate = useNavigate();
   return (
-    <div className="photo-grid">
+    <div className="photo-grid z-0">
       {photos.map((photo, index) => (
         <div className="photo-card" key={index}>
           <img src={photo.src} alt={photo.title} />

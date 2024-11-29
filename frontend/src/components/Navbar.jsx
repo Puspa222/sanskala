@@ -113,7 +113,7 @@ function Navbar() {
         </div>
       </aside>
 
-      <div className="top-3 right-4 fixed z-20">
+      <div className="top-3 right-4 fixed z-30">
         <div className="cursor-pointer" onClick={toggleProfileMenu}>
           <img
             src={profileImage}

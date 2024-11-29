@@ -39,8 +39,8 @@ function HeroSection() {
   }, []);
 
   return (
-    <div className="bg-yellow-100">
-      <div className="fixed top-0 w-full h-16 bg-gray-800 z-3"></div>
+    <div className="bg-yellow-100 z-0">
+      <div className="fixed top-0 w-full h-16 bg-gray-800 z-20"></div>
       <div className="mt-14 p-6">
         <section
           className="relative flex flex-col justify-center items-center text-center h-[70vh] bg-cover bg-center rounded-xl"
