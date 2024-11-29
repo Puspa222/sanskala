@@ -123,19 +123,19 @@ function Navbar() {
         </div>
         {/* Profile Dropdown Menu */}
         {profileMenuOpen && (
-          <div className="absolute right-0  bg-gray-50 text-gray-800 shadow-lg w-48 rounded-lg">
+          <div className="absolute right-0  bg-gray-50 text-gray-900 shadow-lg w-48 rounded-lg">
             <ul>
               {profileOptions.map((item, index) => (
                 <li
                   key={index}
-                  className="hover:bg-stone-100 hover:text-stone-900 p-3 rounded-lg transition duration-200 cursor-pointer"
+                  className="hover:bg-stone-300 text-stone-900 p-3 rounded-lg transition duration-200 cursor-pointer"
                 >
                   {item.component ? (
                     item.component
                   ) : (
                     <Link
                       to={item.path}
-                      className="block text-stone-800 hover:text-white"
+                      className="block text-stone-800 hover:text-stone-950"
                     >
                       {item.name}
                     </Link>

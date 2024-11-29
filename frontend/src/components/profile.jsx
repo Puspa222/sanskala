@@ -54,7 +54,7 @@ function Profile() {
   if (!user) {
     // Display a loading state or placeholder
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
+      <div className="flex items-center justify-center min-h-screen bg-yellow-100">
         <p className="text-gray-800 dark:text-gray-200">Loading profile...</p>
       </div>
     );
@@ -66,8 +66,8 @@ function Profile() {
     : profileImage; // Fallback image
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
-      <div className="w-full max-w-lg bg-gray-200 dark:bg-gray-700 rounded-xl p-10">
+    <div className="flex items-center justify-center min-h-screen bg-yellow-100">
+      <div className="w-full max-w-lg bg-gray-200 dark:bg-gray-900 rounded-xl p-10">
         <div className="flex justify-center mb-4">
           <img
             src={profilePicUrl} // Dynamically set the profile pic
@@ -81,9 +81,7 @@ function Profile() {
         <p className="text-center text-gray-600 dark:text-gray-300">
           {user.email}
         </p>
-        <div className="mt-6">
-      
-        </div>
+        <div className="mt-6"></div>
         <div className="mt-4">
           <LogoutBtn />
         </div>
