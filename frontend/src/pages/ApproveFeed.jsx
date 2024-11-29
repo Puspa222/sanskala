@@ -32,8 +32,8 @@ function ApproveFeed() {
 
   return (
     <>
-      <div className="w-full h-screen bg-yellow-200 mt-16">
-        <div className="fixed top-0 w-full h-16 bg-stone-950 z-20 text-white font-bold text-center"></div>
+      <div className="w-full h-screen bg-yellow-100 mt-16">
+        <div className="fixed top-0 w-full h-20 bg-stone-950 z-20 text-white font-bold text-center"></div>
         <div className="post-container p-2">
           {loading ? (
             <p>Loading posts...</p>
