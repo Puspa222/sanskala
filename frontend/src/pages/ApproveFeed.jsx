@@ -32,21 +32,22 @@ function ApproveFeed() {
 
   return (
     <>
-      <div className="fixed top-0 w-full h-16 bg-gray-800 z-10"></div>
-
-      <div className="post-container">
-        {loading ? (
-          <p>Loading posts...</p>
-        ) : (
-          <div className="mt-20">
-            {
-              (console.log(posts),
-              posts.map((post) => (
-                <ApproveFeedCard key={post.id} post={post} /> // Pass post data to PostCard
-              )))
-            }
-          </div>
-        )}
+      <div className="w-full h-screen bg-yellow-100 mt-16">
+        <div className="fixed top-0 w-full h-20 bg-stone-950 z-20 text-white font-bold text-center"></div>
+        <div className="post-container p-2">
+          {loading ? (
+            <p>Loading posts...</p>
+          ) : (
+            <div className="mt-10">
+              {
+                (console.log(posts),
+                posts.map((post) => (
+                  <ApproveFeedCard key={post.id} post={post} /> // Pass post data to PostCard
+                )))
+              }
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
