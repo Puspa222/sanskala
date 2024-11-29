@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 function ApproveFeed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigete = useNavigate();
+  const navigate = useNavigate();
   const adminAuthStatus = useSelector((state) => state.adminAuth.status);
 
   useEffect(() => {
     if (!adminAuthStatus) {
-      navigete("/");
+      navigate("/");
     }
     // Fetch posts from the backend
     const fetchPosts = async () => {

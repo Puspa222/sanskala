@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function FeedCard({ post }) {
   const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
   const [approveMsg, setApproveMsg] = useState("");
+
 
   const approveFeed = () => {
     setApproveMsg("approved");
@@ -21,6 +23,7 @@ function FeedCard({ post }) {
         })
         .then((response) => {
           console.log(response.data);
+        
         })
         .catch((error) => {
           console.error("There was an error!", error);

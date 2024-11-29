@@ -6,6 +6,8 @@ import Logo from "./Logo";
 import LogoutBtn from "./LogoutBtn";
 import "../css/nav.css";
 import { nanoid } from "@reduxjs/toolkit";
+import axios from "axios";
+import { adminLogin } from "../store/AdminAuthSlice";
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
