@@ -5,7 +5,7 @@ function PostCard({ post }) {
   const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-sm mx-auto">
+    <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl max-w-4xl mx-auto">
       {/* Image Section with Scroll */}
       <div className="relative w-full">
         {images.length > 0 ? (
@@ -15,7 +15,7 @@ function PostCard({ post }) {
                 key={index}
                 src={`http://localhost/sanskala/backend/${image.substring(3)}`}
                 alt={`Featured ${index + 1}`}
-                className="w-48 h-48 object-cover rounded-lg p-2 border"
+                className="w-72 h-72 object-cover rounded-lg p-2 border"
               />
             ))}
           </div>
