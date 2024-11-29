@@ -4,13 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 const photos = [
   { src: "./src/home-image/danceho.jpg", title: "Dances", path:'/dances' },
-  { src: "./src/home-image/art.png", title: "Arts", path:'/arts' },
+  { src: "./src/home-image/art.png", title: "Arts", path:'/Arts' },
   { src: "./src/home-image/music.jpg", title: "Musics", path:'/musics' },
   { src: "./src/home-image/products.jpg", title: "Products", path:'/products' },
   { src: "./src/home-image/UNITY.jpeg", title: "Celebrations", path:'/celebrations' },
   { src: "./src/home-image/r2.jpeg", title: "Recipes", path:'/recipes' },
 ];
-
 function PhotoGrid() {
   const navigate = useNavigate()
   return (
