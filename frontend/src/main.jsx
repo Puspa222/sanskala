@@ -10,9 +10,7 @@ import Signup from "./components/Signup.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import Explore from "./pages/Explore.jsx";
-
-
-import GovermentPolicy from "./pages/Goverment.jsx";
+import GovernmentPolicy from "./pages/Goverment.jsx";
 import Post from "./pages/post.jsx";
 // import profile from "./components/profile.jsx";
 
@@ -49,12 +47,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/feed",
-        element: <Feed />,
+        path:"/post",
+        element:<Post/>
       },
       {
-        path: "/goverment",
-        element: <GovermentPolicy/>,
+        path: "/Government",
+        element: <GovernmentPolicy/>,
       },
       {
         path:"/post",
