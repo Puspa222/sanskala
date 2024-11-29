@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PostCard from "../components/PostCard"; // Import the PostCard component
+import FeedCard from "../components/FeedCard";
 
-function Post() {
+function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,11 +31,11 @@ function Post() {
       ) : (
         (console.log(posts),
         posts.map((post) => (
-          <PostCard key={post.id} post={post} /> // Pass post data to PostCard
+          <FeedCard key={post.id} post={post} /> // Pass post data to PostCard
         )))
       )}
     </div>
   );
 }
 
-export default Post;
+export default Feed;

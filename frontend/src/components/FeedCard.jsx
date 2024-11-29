@@ -1,6 +1,6 @@
 import React from "react";
 
-function PostCard({ post }) {
+function FeedCard({ post }) {
   // Ensure item and featured_images are properly defined before accessing them
   const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
 
@@ -25,7 +25,7 @@ function PostCard({ post }) {
           </div>
         )}
         <div className="absolute top-2 left-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
-         {/* { Featured} */}
+          {/* { Featured} */}
         </div>
       </div>
 
@@ -56,4 +56,4 @@ function PostCard({ post }) {
   );
 }
 
-export default PostCard;
+export default FeedCard;
