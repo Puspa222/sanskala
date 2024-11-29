@@ -77,16 +77,17 @@ const GovernmentPolicy = () => {
           {policies.map((policy, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-purple-800 via-pink-700 to-orange-500 p-6 rounded-lg shadow-2xl transform hover:scale-105 hover:rotate-1 transition-transform duration-300 w-72" // Set a fixed width for cards
+              className="bg-gradient-to-br from-yellow-600 via-yellow-500 to-yellow-400 p-6 rounded-lg shadow-2xl transform hover:scale-105 hover:rotate-1 transition-transform duration-300 w-72"
+ // Set a fixed width for cards
             >
-              <h2 className="text-2xl font-bold mb-4 text-white drop-shadow-md">
+              <h2 className="text-2xl font-bold mb-4 text-black drop-shadow-md">
                 {policy.title}
               </h2>
               <ul className="list-inside space-y-3">
                 {policy.content.map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start text-lg leading-relaxed text-gray-200"
+                    className="flex items-start text-lg leading-relaxed text-brown-200"
                   >
                     <span className="w-3 h-3 mt-1 mr-2 bg-yellow-400 rounded-full flex-shrink-0"></span>
                     {item}

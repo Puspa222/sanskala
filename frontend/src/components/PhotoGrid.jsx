@@ -18,6 +18,7 @@ function PhotoGrid() {
           <img src={photo.src} alt={photo.title} />
           <div className="photo-overlay">
             <h3>{photo.title}</h3>
+           < button className="photo-button" onClick={()=>{navigate("/explore")}}> Explore More</button> 
           </div>
         </div>
       ))}
