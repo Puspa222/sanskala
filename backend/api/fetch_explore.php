@@ -12,7 +12,7 @@ $filter = $data['filter'] ?? 'ALL'; // Default to 'ALL' if not provided
 $search = $data['search'] ?? '';   // Default to an empty string if not provided
 
 // Prepare the base SQL query
-$sql = "SELECT * FROM posts WHERE 1=1";
+$sql = "SELECT * FROM posts WHERE status = 'Yes'";
 
 // Add filter condition if not 'ALL'
 if ($filter !== "ALL") {

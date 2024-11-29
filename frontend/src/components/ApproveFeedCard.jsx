@@ -15,7 +15,7 @@ function FeedCard({ post }) {
   useEffect(() => {
     if (approveMsg) {
       axios
-        .post("http://localhost/sanskala/backend/post_approve_response.php", {
+        .post("http://localhost/sanskala/backend/api//post_approve_response.php", {
           postId: post.id,
           status: approveMsg,
         })
