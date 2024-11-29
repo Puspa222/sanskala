@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function FeedCard({ post }) {
   const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
   const [approveMsg, setApproveMsg] = useState("");
+  const navigate = useNavigate();
 
 
   const approveFeed = () => {
@@ -23,7 +25,7 @@ function FeedCard({ post }) {
         })
         .then((response) => {
           console.log(response.data);
-        
+          navigate("/feed");
         })
         .catch((error) => {
           console.error("There was an error!", error);

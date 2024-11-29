@@ -34,12 +34,13 @@ function Navbar() {
         });
     }
   }, []);
-  if (useSelector((state) => state.auth.status)) {
-    if (res.role === "admin") {
+
+  useEffect(() => {
+    if (authStatus && res.role === "admin") {
       dispatch(adminLogin(res.data));
       console.log("Admin Logged In");
     }
-  }
+  }, [authStatus, res, dispatch]);
 
   const toggleProfileMenu = () => setProfileMenuOpen((prev) => !prev);
 
