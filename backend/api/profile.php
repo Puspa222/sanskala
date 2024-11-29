@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Set CORS headers
-header("Access-Control-Allow-Origin: http://localhost:5174"); // Frontend URL
+header("Access-Control-Allow-Origin: *"); // Frontend URL
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");  // Allowed HTTP methods
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allowed headers
 
