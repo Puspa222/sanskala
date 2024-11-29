@@ -101,3 +101,4 @@ const GovernmentPolicy = () => {
   );
 };
 export default GovernmentPolicy;
+

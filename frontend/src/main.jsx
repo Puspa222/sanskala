@@ -10,7 +10,6 @@ import Signup from "./components/Signup.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import GovernmentPolicy from "./components/Goverment.jsx";
-
 import Explore from "./components/Explore.jsx";
 import Feed from "./components/Feeds.jsx";
 
@@ -46,12 +45,9 @@ const router = createBrowserRouter([
         element: <CultureForm />,
       },
       {
-<<<<<<< HEAD
-        path: "/government",
-=======
         path: "/Government",
->>>>>>> 7c27b0c45c5ec2815073b24f7178eea9c5250078
         element: <GovernmentPolicy />,
+
       },
       {
         path: "/feed",
