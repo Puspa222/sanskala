@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import profileImage from "../images/profile.png";
 import Logo from "./Logo";
 import LogoutBtn from "./LogoutBtn";
@@ -12,12 +12,32 @@ function Navbar() {
   const authStatus = useSelector((state) => state.auth.status);
   const adminAuthStatus = useSelector((state) => state.adminAuth.status);
 
+  const dispatch = useDispatch();
+  const [res, setRes] = useState({});
+
   useEffect(() => {
     const sessionId = localStorage.getItem("session_id");
+
     if (sessionId) {
-      // Persist session logic if needed
+      axios
+        .post("http://localhost/sanskala/backend/api/role_check.php", {
+          session_id: sessionId,
+        })
+        .then((response) => {
+          console.log(response.data);
+          setRes(response.data);
+        })
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
     }
   }, []);
+  if (useSelector((state) => state.auth.status)) {
+    if (res.role === "admin") {
+      dispatch(adminLogin(res.data));
+      console.log("Admin Logged In");
+    }
+  }
 
   const toggleProfileMenu = () => setProfileMenuOpen((prev) => !prev);
 

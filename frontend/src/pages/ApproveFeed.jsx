@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ApproveFeedCard from "../components/ApproveFeedCard";
-function Feed() {
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+function ApproveFeed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigete = useNavigate();
+  const adminAuthStatus = useSelector((state) => state.adminAuth.status);
 
   useEffect(() => {
+    if (!adminAuthStatus) {
+      navigete("/");
+    }
     // Fetch posts from the backend
     const fetchPosts = async () => {
       try {
@@ -45,4 +52,4 @@ function Feed() {
   );
 }
 
-export default Feed;
+export default ApproveFeed;
