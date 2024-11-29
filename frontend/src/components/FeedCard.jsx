@@ -18,9 +18,7 @@ function FeedCard({ post }) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost/sanskala/backend/api/comments.php?pid=${post.id}`
-        );
+        const response = await axios.get(`http://localhost/sanskala/backend/api/comment.php?pid=${post.id}`);
         if (response.data.status === "success") {
           setComments(response.data.comments);
         } else {
@@ -30,7 +28,6 @@ function FeedCard({ post }) {
         console.error("Error fetching comments:", error);
       }
     };
-
     fetchComments();
   }, [post.id]);
 
@@ -42,7 +39,7 @@ function FeedCard({ post }) {
 
     try {
       const response = await axios.post(
-        "http://localhost/sanskala/backend/api/comments.php",
+        "http://localhost/sanskala/backend/api/comment.php",
         data,
         {
           headers: {
