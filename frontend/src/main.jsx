@@ -15,9 +15,7 @@ import GovermentPolicy from "./pages/Goverment.jsx";
 import Arts from "./components/Home-mini-page/Arts.jsx";
 import Musics from "./components/Home-mini-page/Music.jsx";
 import Celebrations from "./components/Home-mini-page/Celebrations.jsx";
-
-// import profile from "./components/profile.jsx";
-
+import ApproveFeed from "./pages/ApproveFeed.jsx";
 import CultureForm from "./components/add-culture-form/CultureForm.jsx";
 import Feed from "./pages/Feed.jsx";
 import Dance from "./components/Home-mini-page/Dance.jsx";
@@ -84,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <Recipes />,
+      },
+      {
+        path: "/approve-feed",
+        element: <ApproveFeed />,
       },
     ],
   },

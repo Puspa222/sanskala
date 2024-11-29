@@ -5,10 +5,12 @@ import profileImage from "../images/profile.png";
 import Logo from "./Logo";
 import LogoutBtn from "./LogoutBtn";
 import "../css/nav.css";
+import { nanoid } from "@reduxjs/toolkit";
 
 function Navbar() {
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const authStatus = useSelector((state) => state.auth.status);
+  const adminAuthStatus = useSelector((state) => state.adminAuth.status);
 
   useEffect(() => {
     const sessionId = localStorage.getItem("session_id");
@@ -63,6 +65,21 @@ function Navbar() {
               {item.name}
             </NavLink>
           ))}
+          {adminAuthStatus && (
+            <NavLink
+              key={nanoid}
+              to={"/approve-feed"}
+              className={({ isActive }) =>
+                `block py-3 px-4 rounded-lg font-medium transition duration-300 ${
+                  isActive
+                    ? "bg-stone-200 text-gray-700"
+                    : "hover:bg-stone-300 text-gray-300 hover:text-gray-700"
+                }`
+              }
+            >
+              Approve Feed
+            </NavLink>
+          )}
         </nav>
 
         {/* Footer */}
