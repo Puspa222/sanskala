@@ -28,11 +28,11 @@ function Feed() {
     <>
       <div className="fixed top-0 w-full h-16 bg-gray-800 z-10"></div>
 
-      <div className="post-container">
+      <div className="post-container bg-yellow-100">
         {loading ? (
           <p>Loading posts...</p>
         ) : (
-          <div className="mt-20">
+          <div className="pt-20">
           
           {
             (console.log(posts),

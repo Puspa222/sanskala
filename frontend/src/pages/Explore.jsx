@@ -40,7 +40,7 @@ const Explore = () => {
     <div className="min-h-screen  bg-stone-950 ">
       {/* Search Bar and Filter */}
       <div className="sticky top-0 z-10 bg-stone-950 py-4">
-        <div className="container mx-auto  items-center px-4 space-y-6">
+        <div className="container mx-auto  items-center px-4 space-y-6 ">
           {/* Filters */}
           <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
             {filters.map((filter) => (
@@ -70,7 +70,7 @@ const Explore = () => {
       </div>
 
       {/* Cards Section */}
-      <div className="mt-5 max-h-screen overflow-y-auto scrollbar-hide bg-stone-200 px-4 py-6">
+      <div className="mt-5 max-h-screen overflow-y-auto scrollbar-hide bg-yellow-100 px-4 py-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {items.length > 0 ? (
             items.map((item, index) => (

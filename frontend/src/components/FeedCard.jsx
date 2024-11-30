@@ -74,7 +74,7 @@ function FeedCard({ post }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-100 hover:shadow-2xl mt-6 max-w-3xl mx-auto">
+    <div className="bg-stone-100 p-7 rounded-lg shadow-lg border overflow-hidden transition-transform transform hover:scale-100 hover:shadow-2xl mt-12 max-w-3xl mx-auto">
       <div className="relative w-full">
         {images.length > 0 ? (
           <div className="flex overflow-x-auto space-x-2">
