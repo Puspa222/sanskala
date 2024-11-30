@@ -17,7 +17,7 @@ function LogoutBtn() {
     dispatch(adminLogout());
 
     // Redirect to home or login page
-    navigate("/");
+    navigate("/", { state: { refresh: Date.now() } });
   };
 
   return (
