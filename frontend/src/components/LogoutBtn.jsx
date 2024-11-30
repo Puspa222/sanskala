@@ -7,6 +7,7 @@ import { adminLogout } from "../store/AdminAuthSlice";
 function LogoutBtn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const loading = false;
 
   const logoutHandler = () => {
     // Remove session_id from localStorage
@@ -24,8 +25,10 @@ function LogoutBtn() {
     <button
       onClick={logoutHandler}
       className="text-white bg-red-600 hover:bg-red-500 rounded px-1 py-1"
+      disabled={loading}
     >
-      Logout
+      {loading ? "Logging Out..." : "Logout"}
+
     </button>
   );
 }

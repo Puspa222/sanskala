@@ -12,6 +12,7 @@ import axios from "axios";
 function Login() {
   const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
+  const loading = false;
 
   useEffect(() => {
     if (authStatus) {
@@ -123,8 +124,9 @@ function Login() {
           <Button
             type="submit"
             className="w-full py-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium text-xs rounded-lg shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105"
+            disabled={loading}
           >
-            Sign in
+            {loading ? "Signing in..." : "Sign in"}
           </Button>
         </form>
       </div>
