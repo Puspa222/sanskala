@@ -48,7 +48,7 @@ function Login() {
         window.location.reload();
 
         // Navigate to the homepage
-        navigate("/", { state: { refresh: Date.now() } });
+        navigate("/?Login_Successful", { state: { refresh: Date.now() } });
       } else {
         // Display backend error message or fallback error
         setError(message || "Invalid email or password.");

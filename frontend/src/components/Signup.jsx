@@ -51,7 +51,7 @@ function Signup() {
         dispatch(login(userData));
         window.location.reload();
 
-        navigate("/", { state: { refresh: Date.now() } });
+        navigate("/?Register_Successful", { state: { refresh: Date.now() } });
       }
     } catch (error) {
       console.log(error.message);

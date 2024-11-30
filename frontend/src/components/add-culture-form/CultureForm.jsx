@@ -68,7 +68,6 @@ const CultureForm = () => {
       if (response.data.message === "success") {
         setSuccessMessage("Post created successfully!");
         setPostData({ title: "", content: "" });
-        navigate("/feed?Post Created Successfully"); // Redirect to the homepage
         setImages([]);
       } else {
         setErrorMessage("Failed to create post.");

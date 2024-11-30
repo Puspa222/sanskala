@@ -17,7 +17,7 @@ function LogoutBtn() {
     dispatch(adminLogout());
 
     // Redirect to home or login page
-    navigate("/", { state: { refresh: Date.now() } });
+    navigate("/?Logout_Successful", { state: { refresh: Date.now() } });
   };
 
   return (
