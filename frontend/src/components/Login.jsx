@@ -47,7 +47,8 @@ function Login() {
         dispatch(storeLogin(response.data));
 
         // Navigate to the homepage
-        navigate("/", { state: { refresh: Date.now() } });      } else {
+        navigate("/", { state: { refresh: Date.now() } });
+      } else {
         // Display backend error message or fallback error
         setError(message || "Invalid email or password.");
       }

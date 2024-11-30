@@ -49,7 +49,8 @@ function Signup() {
       if (userData) {
         localStorage.setItem("session_id", userData.session_id);
         dispatch(login(userData));
-        navigate("/", { state: { refresh: Date.now() } });        }
+        navigate("/", { state: { refresh: Date.now() } });
+      }
     } catch (error) {
       console.log(error.message);
       setError(error.message);
