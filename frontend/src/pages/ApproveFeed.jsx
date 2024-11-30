@@ -45,6 +45,11 @@ function ApproveFeed() {
                   <ApproveFeedCard key={post.id} post={post} /> // Pass post data to PostCard
                 )))
               }
+              {
+                posts.length === 0 && (
+                  <p className="text-center text-lg text-gray-600 mt-20">No posts to approve</p>
+                )
+              }
             </div>
           )}
         </div>
