@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 function FeedCard({ post }) {
   const images = post?.featured_images ? JSON.parse(post.featured_images) : [];
   const [approveMsg, setApproveMsg] = useState("");
   const navigate = useNavigate();
-
 
   const approveFeed = () => {
     setApproveMsg("approved");
@@ -19,20 +17,22 @@ function FeedCard({ post }) {
   useEffect(() => {
     if (approveMsg) {
       axios
-        .post("http://localhost/sanskala/backend/api//post_approve_response.php", {
-          postId: post.id,
-          status: approveMsg,
-        })
+        .post(
+          "http://localhost/sanskala/backend/api//post_approve_response.php",
+          {
+            postId: post.id,
+            status: approveMsg,
+          }
+        )
         .then((response) => {
           console.log(response.data);
-          navigate("/feed");
+          navigate(`/feed?${approveMsg}`);
         })
         .catch((error) => {
           console.error("There was an error!", error);
         });
     }
   }, [approveMsg]);
-
 
   return (
     <div className="bg-gray-800 p-6   rounded-3xl shadow-lg border overflow-hidden transition-transform transform hover:scale-100 hover:shadow-2xl max-w-4xl mx-auto z-0">
@@ -59,10 +59,18 @@ function FeedCard({ post }) {
         <h3 className="text-lg font-semibold text-gray-800 truncate">
           Title: {post?.title || "Untitled"}
         </h3>
-        <h4 className="text-gray-800 bg-yellow-100 p-3 rounded-xl">Author: <span className="font-bold">{post?.username || "Unknown"}</span></h4>
-        <h4 className="text-gray-800 bg-yellow-100 p-3 rounded-xl">Category: <span className="font-bold">{post?.category || "N/A"}</span></h4>
+        <h4 className="text-gray-800 bg-yellow-100 p-3 rounded-xl">
+          Author:{" "}
+          <span className="font-bold">{post?.username || "Unknown"}</span>
+        </h4>
+        <h4 className="text-gray-800 bg-yellow-100 p-3 rounded-xl">
+          Category: <span className="font-bold">{post?.category || "N/A"}</span>
+        </h4>
         <p className="text-base text-gray-800 bg-yellow-200 p-3 rounded-xl">
-          Description: <span className="">{post?.content || "No description available."}</span>
+          Description:{" "}
+          <span className="">
+            {post?.content || "No description available."}
+          </span>
         </p>
         <div className="flex justify-between items-center">
           <button
