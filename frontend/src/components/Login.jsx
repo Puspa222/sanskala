@@ -45,6 +45,7 @@ function Login() {
 
         // Dispatch the Redux login action
         dispatch(storeLogin(response.data));
+        window.location.reload();
 
         // Navigate to the homepage
         navigate("/", { state: { refresh: Date.now() } });

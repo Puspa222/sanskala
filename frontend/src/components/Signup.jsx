@@ -49,6 +49,8 @@ function Signup() {
       if (userData) {
         localStorage.setItem("session_id", userData.session_id);
         dispatch(login(userData));
+        window.location.reload();
+
         navigate("/", { state: { refresh: Date.now() } });
       }
     } catch (error) {
